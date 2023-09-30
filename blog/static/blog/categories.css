@@ -1,0 +1,77 @@
+/* Styles for h1 elements */
+h1 {
+    padding-bottom: 20px; /* Add padding at the bottom of h1 elements */
+}
+
+/* Styles for news articles */
+.news-article {
+    display: flex; /* Use flex display */
+    align-items: center; /* Center-align items vertically */
+    gap: 20px; /* Add gap between items */
+    padding-bottom: 15px; /* Add padding at the bottom */
+}
+
+@media screen and (max-width: 992px) {
+    .news-article {
+        flex-direction: column; /* Set flex direction to col */
+    }
+
+    h1 {
+        padding-bottom: 0; /* Setting padding to 0 for small screens */
+    }
+}
+
+/* Styles for horizontal lines */
+hr {
+    padding-bottom: 15px; /* Add padding at the bottom of horizontal lines */
+}
+
+/* Styles for the first news article within a container */
+.news-article:first-child {
+    padding-top: 0; /* Remove padding at the top for the first news article */
+}
+
+/* Styles for the news image container */
+.news-image-container {
+    flex: 0 0 40%; /* Adjust image column width */
+}
+
+.news-image-container img {
+    height: auto; /* Set image height to auto (maintain aspect ratio) */
+}
+
+/* Styles for the filter news section */
+.filter-news {
+    padding-bottom: 20px; /* Add padding at the bottom */
+}
+
+/* Styles for h3 elements */
+h3 {
+    text-decoration: none; /* Remove text decoration from h3 elements */
+}
+
+/* Styles for categories menu */
+.categories-menu {
+    display: block; /* Use block display */
+    align-items: center; /* Center-align items vertically */
+    list-style: none; /* Remove bullets (dots) from the list */
+}
+
+/* Styles for categories menu items */
+.categories-menu-item {
+    display: flex; /* Use flex display */
+    text-align: center; /* Center-align text */
+    margin: 10px 0px 10px 0px; /* Add margins */
+    padding: 10px 0px 10px 20px; /* Add padding */
+    border: 1px solid var(--shadow-box); /* Add border with shadow effect */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    background-color: var(--background-quaternary); /* Set background color */
+}
+
+/* Styles for category links */
+.category-link {
+    background-color: transparent; /* Set transparent background */
+    border: none; /* Remove borders */
+    color: var(--background-secondary); /* Set text color */
+    font-weight: bolder; /* Set font weight to bold */
+}

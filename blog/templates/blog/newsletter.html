@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="html-element">
+<!--
+    IMAGE AND TEXT ATTRIBUTION:
+    - All the images used for the website are copyright-free, and were gathered from https://unsplash.com/
+    - All the newspaper articles used for the website are entirely fictional, and were created by https://rytr.me/
+-->
+<head>
+    <!-- Required meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- External CSS frameworks and libraries -->
+    <!-- 1. Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- 2. jQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <!-- External CSS stylesheets -->
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/newsletter.css">
+
+    <!-- External JS modules -->
+    <script type="module" src="/scripts/common.js"> </script>
+
+    <!-- Fonts from Google API-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans" rel="stylesheet">
+
+    <!-- Page title -->
+    <title>The Verve - Newsletter</title>
+</head>
+
+<body>
+
+    <!-- 
+        Header Section: contains the website logo, the navigation links and accessibility options.
+        I choose to divide it in two sections. The first one leaning on the left side: from the logo
+        up to the "Newsletter" page link. And the second on leaning on the right side containing
+        "Report" and the "Accessibility" logo that opens up the accessibility side menu when clicked.
+    -->
+    <header>
+        <!-- Nav Bar for big screens -->
+        <nav class="row justify-content-between d-none d-md-flex">
+            <!-- 
+                The first of the two sections of the navigation for the website: from the logo
+                up to the "Newsletter" page link
+            -->
+            <div id="main-navigation" class="col-md-6">
+                <!-- Website logo -->
+                <a href="/index.html"><img id="website-logo" src="/images/v-logo.png"
+                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+                <!-- Navigation links -->
+                <a href="/index.html">Home</a>
+                <a href="/news.html">News</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/subscribe.html">Subscribe</a>
+                <a href="/newsletter.html">Newsletter</a>
+            </div>
+            <!-- 
+                The second of the two sections of the navigation for the website: the report 
+                and "Accessibility" logo button. 
+            -->
+            <div id="side-navigation" class="col-md-2">
+                <a href="/report.html">Report</a>
+                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
+                <button id="accessibility-button" class="open-menu-button">
+                    <img id="website-accessibility-menu" src="/images/accessibility-icon.png"
+                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
+                </button>
+            </div>
+        </nav>
+
+        <!-- 
+            Accessibility side menu containing options for increasing/decreasing the font size
+            and for regulating the dark/light mode for the whole website
+        -->
+        <section id="side-menu" class="side-navigation-menu">
+            <!-- 
+                The close side menu button that shows up on the top right when the side accessibility
+                menu is open.
+            -->
+            <button class="close-menu-button">&times;</button>
+            <h2 id="accessibility-title">ACCESSIBILITY</h2>
+            <!-- Accessibility options: light/dark mode and font size -->
+            <div class="side-menu-buttons">
+                <!-- The first of the two accessibility options: View Mode -->
+                <h3>View mode:</h3>
+                <div id="view-mode-group" class="btn-group" role="group">
+                    <!-- Light mode button -->
+                    <button id="light-mode" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/light-mode.svg"
+                            alt="Light mode icon: it displays an empty moon in order to indicate light">
+                        <span class="side-menu-mode-text">&nbsp;Light</span>
+                    </button>
+                    <!-- Dark mode button -->
+                    <button id="dark-mode" type="button" class="btn btn-secondary side-menu-button">
+                        <span class="side-menu-mode-text">Dark&nbsp;</span>
+                        <img src="/images/dark-mode.svg"
+                            alt="Dark mode icon: it displays a full moon in order to indicate darkness">
+                    </button>
+                </div>
+                <!-- The second of the two accessibility options: Font Size -->
+                <h3>Font size:</h3>
+                <div id="font-size-group" class="btn-group" role="group">
+                    <!-- Small font size button -->
+                    <button id="font-size-small" type="button" class="btn btn-secondary side-menu-button">
+                        <span class="side-menu-mode-text">-</span>
+                        <img src="/images/font-size.svg"
+                            alt="Small font size icon: it is the letter 'A' with a minus sign preceding it">
+                    </button>
+                    <!-- Normal font size button -->
+                    <button id="font-size-normal" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/font-size.svg" alt="Normal font size icon: it is just the letter 'A'">
+                    </button>
+                    <!-- Big font size button -->
+                    <button id="font-size-big" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/font-size.svg"
+                            alt="Big font size icon: it is the letter 'A' with a plus sign afterwards">
+                        <span class="side-menu-mode-text">+</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nav Bar for small screens -->
+        <nav class="row justify-content-between d-md-none d-flex">
+            <div class="col-2">
+                <a href="/index.html"><img id="website-logo-small-screen" src="/images/v-logo.png"
+                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+            </div>
+
+            <div class="col-7">
+                <a href="/report.html">Report</a>
+                <button id="menu-button" class="open-small-screens-menu-button">
+                    <img id="website-small-menu" src="/images/bars-menu.svg" alt="">
+                </button>
+                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
+                <button id="accessibility-button-small-screen" class="open-menu-button">
+                    <img id="website-accessibility-menu-small-screen" src="/images/accessibility-icon.png"
+                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
+                </button>
+            </div>
+        </nav>
+
+        <!-- Small screens side menu containing navigation options -->
+        <section id="small-screens-menu" class="side-navigation-menu">
+            <!--  The close side menu button that shows up on the top right when the menu is open. -->
+            <button class="close-menu-button">&times;</button>
+            <h2 id="navigation-title">NAVIGATION</h2>
+            <!-- Navigation options -->
+            <div class="small-screens-menu-buttons">
+                <a href="/index.html">Home</a>
+                <a href="/news.html">News</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/subscribe.html">Subscribe</a>
+                <a href="/newsletter.html">Newsletter</a>
+            </div>
+        </section>
+
+    </header>
+
+    <!-- 
+        The whole "newsletter" page is contained into a single section. This one is divided
+        into three rows, called "elements-row", each one containing three articles 
+        horizontally aligned.
+        NOTE: ALL BUTTONS ONLY MEANT FOR DECORATIVE PURPOSES AND DO NOT CONTAIN ANY LINK.
+    -->
+    <main>
+        <!-- The one and only section in which the page is divided-->
+        <section class="container-section">
+            <!-- Section title -->
+            <h1>SIGN UP FOR THE VERVE<br>NEWSLETTER</h1>
+            <!-- The first of the three rows of articles -->
+            <div class="elements-row">
+                <!-- First article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter1.jpg" alt="Close-up of a musician playing a blues guitar. The close up shows the ending part of the neck of the guitar and the right hand holding the pick">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">Weekly Music Updates</h3>
+                        <p class="article-brief">
+                            Stay in the groove with our weekly music updates. Get the latest on your favorite artists,
+                            and exclusive behind-the-scenes stories.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+                <!-- Second article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter2.jpg" alt="The inside of a music store with a huge wall containing countless vynils. The close-up is on the 'Easy Listening' section">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">New Album Releases</h3>
+                        <p class="article-brief">
+                            Be the first to know about new album releases. Our newsletter covers hottest,
+                            album reviews, and exclusive interviews with musicians.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+                <!-- Third article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter3.jpg" alt="Wide shot of a crowd cheering at a concert. It is during nighttime and the stage is all covered in smoke">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">Concert Highlights</h3>
+                        <p class="article-brief">
+                            Relive the best concert moments with our Concert Highlights newsletter. Get access to
+                            exclusive photos and backstage stories.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+            </div>
+
+            <!-- The second of the three rows of articles -->
+            <div class="elements-row">
+                <!-- First article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter4.jpg" alt="Close-up of a drum kit showing the bass drum, the snare drum and the high hat">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">Artist Spotlights</h3>
+                        <p class="article-brief">
+                            Dive deep into your favorite artists with our Artist Spotlights newsletter.
+                            Discover their musical journeys, and exclusive performances.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+                <!-- Second article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter5.jpg" alt="Shot in black and white of the backstage of a music concert happening in a large stadium">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">Music Industry Insights</h3>
+                        <p class="article-brief">
+                            Get a behind-the-scenes look at the music industry. Stay informed about trends, innovations,
+                            with industry professionals.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+                <!-- Third article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter6.jpg" alt="Close-up shot of a person playing the bass guitar. In the shot only the hands of the musician and the instrument are visible">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">Classic Hits Rewind</h3>
+                        <p class="article-brief">
+                            Take a trip down memory lane with Classic Hits Rewind. Relish the timeless
+                            classics, and iconic albums from music's golden era.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+            </div>
+
+            <!-- The third of the three rows of articles -->
+            <div class="elements-row">
+                <!-- First article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter7.jpg" alt="Wide shot of a crowd cheering at a concert. The stage is all covered in yellow lights nothing is visible in it">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">Music Event Updates</h3>
+                        <p class="article-brief">
+                            Stay in the loop about upcoming music events and festivals. Get details on lineups, ticket
+                            sales, and exclusive backstage access.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+                <!-- Second article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter8.jpg" alt="Image of a music production room. It shows the equipment needed in such place like mixers, equalizers, and a person following the track playing on a computer">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">Exclusive Interviews</h3>
+                        <p class="article-brief">
+                            Gain insights into the lives and thoughts of your favorite musicians. Get access to in-depth
+                            conversations and personal stories.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+                <!-- Third article from the section -->
+                <article class="vertical-news-article boxy-article">
+                    <!-- Newsletter image container: containing the image of each article -->
+                    <div class="newsletter-image-container">
+                        <img src="/images/newsletter9.jpg" alt="Close up shot of the pedalborad of a musician. The feet of the person are intent into pressing one of the buttons of the pedalboard">
+                    </div>
+                    <!-- News text container: containing the text part  of each article, which includes a title and an article brief. -->
+                    <div class="newsletter-text-container">
+                        <h3 class="vertical-news-article-title">Behind-the-Scenes</h3>
+                        <p class="article-brief">
+                            Uncover the magic behind your favorite music videos and live performances. Go backstage with
+                            the artists and production teams.
+                        </p>
+                    </div>
+                    <!-- NOTE: THE BUTTON IS ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK. -->
+                    <button class="action-button larger-button">SIGN UP</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer section which is only decorative -->
+    <footer>
+        <p id="footer-text">&copy; 2023 The Verve. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

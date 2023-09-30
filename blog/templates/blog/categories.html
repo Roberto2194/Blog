@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" class="html-element">
+<!--
+    IMAGE AND TEXT ATTRIBUTION:
+    - All the images used for the website are copyright-free, and were gathered from https://unsplash.com/
+    - All the newspaper articles used for the website are entirely fictional, and were created by https://rytr.me/
+-->
+<head>
+    <!-- Required meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- External CSS frameworks and libraries -->
+    <!-- 1. Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- 2. jQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <!-- External CSS stylesheets -->
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/categories.css">
+
+    <!-- External JS modules -->
+    <script type="module" src="/scripts/common.js"> </script>
+    <script type="module" src="/scripts/categories.js"></script>
+
+    <!-- Fonts from Google API-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans" rel="stylesheet">
+
+    <!-- Page title -->
+    <title>The Verve - Categories</title>
+</head>
+
+<body>
+
+    <!-- 
+        Header Section: contains the website logo, the navigation links and accessibility options.
+        I choose to divide it in two sections. The first one leaning on the left side: from the logo
+        up to the "Newsletter" page link. And the second on leaning on the right side containing
+        "Report" and the "Accessibility" logo that opens up the accessibility side menu when clicked.
+    -->
+    <header>
+        <!-- Nav Bar for big screens -->
+        <nav class="row justify-content-between d-none d-md-flex">
+            <!-- 
+                The first of the two sections of the navigation for the website: from the logo
+                up to the "Newsletter" page link
+            -->
+            <div id="main-navigation" class="col-md-6">
+                <!-- Website logo -->
+                <a href="/index.html"><img id="website-logo" src="/images/v-logo.png"
+                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+                <!-- Navigation links -->
+                <a href="/index.html">Home</a>
+                <a href="/news.html">News</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/subscribe.html">Subscribe</a>
+                <a href="/newsletter.html">Newsletter</a>
+            </div>
+            <!-- 
+                The second of the two sections of the navigation for the website: the report 
+                and "Accessibility" logo button. 
+            -->
+            <div id="side-navigation" class="col-md-2">
+                <a href="/report.html">Report</a>
+                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
+                <button id="accessibility-button" class="open-menu-button">
+                    <img id="website-accessibility-menu" src="/images/accessibility-icon.png"
+                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
+                </button>
+            </div>
+        </nav>
+
+        <!-- 
+            Accessibility side menu containing options for increasing/decreasing the font size
+            and for regulating the dark/light mode for the whole website
+        -->
+        <section id="side-menu" class="side-navigation-menu">
+            <!-- 
+                The close side menu button that shows up on the top right when the side accessibility
+                menu is open.
+            -->
+            <button class="close-menu-button">&times;</button>
+            <h2 id="accessibility-title">ACCESSIBILITY</h2>
+            <!-- Accessibility options: light/dark mode and font size -->
+            <div class="side-menu-buttons">
+                <!-- The first of the two accessibility options: View Mode -->
+                <h3>View mode:</h3>
+                <div id="view-mode-group" class="btn-group" role="group">
+                    <!-- Light mode button -->
+                    <button id="light-mode" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/light-mode.svg"
+                            alt="Light mode icon: it displays an empty moon in order to indicate light">
+                        <span class="side-menu-mode-text">&nbsp;Light</span>
+                    </button>
+                    <!-- Dark mode button -->
+                    <button id="dark-mode" type="button" class="btn btn-secondary side-menu-button">
+                        <span class="side-menu-mode-text">Dark&nbsp;</span>
+                        <img src="/images/dark-mode.svg"
+                            alt="Dark mode icon: it displays a full moon in order to indicate darkness">
+                    </button>
+                </div>
+                <!-- The second of the two accessibility options: Font Size -->
+                <h3>Font size:</h3>
+                <div id="font-size-group" class="btn-group" role="group">
+                    <!-- Small font size button -->
+                    <button id="font-size-small" type="button" class="btn btn-secondary side-menu-button">
+                        <span class="side-menu-mode-text">-</span>
+                        <img src="/images/font-size.svg"
+                            alt="Small font size icon: it is the letter 'A' with a minus sign preceding it">
+                    </button>
+                    <!-- Normal font size button -->
+                    <button id="font-size-normal" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/font-size.svg" alt="Normal font size icon: it is just the letter 'A'">
+                    </button>
+                    <!-- Big font size button -->
+                    <button id="font-size-big" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/font-size.svg"
+                            alt="Big font size icon: it is the letter 'A' with a plus sign afterwards">
+                        <span class="side-menu-mode-text">+</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nav Bar for small screens -->
+        <nav class="row justify-content-between d-md-none d-flex">
+            <div class="col-2">
+                <a href="/index.html"><img id="website-logo-small-screen" src="/images/v-logo.png"
+                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+            </div>
+
+            <div class="col-7">
+                <a href="/report.html">Report</a>
+                <button id="menu-button" class="open-small-screens-menu-button">
+                    <img id="website-small-menu" src="/images/bars-menu.svg" alt="">
+                </button>
+                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
+                <button id="accessibility-button-small-screen" class="open-menu-button">
+                    <img id="website-accessibility-menu-small-screen" src="/images/accessibility-icon.png"
+                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
+                </button>
+            </div>
+        </nav>
+
+        <!-- Small screens side menu containing navigation options -->
+        <section id="small-screens-menu" class="side-navigation-menu">
+            <!--  The close side menu button that shows up on the top right when the menu is open. -->
+            <button class="close-menu-button">&times;</button>
+            <h2 id="navigation-title">NAVIGATION</h2>
+            <!-- Navigation options -->
+            <div class="small-screens-menu-buttons">
+                <a href="/index.html">Home</a>
+                <a href="/news.html">News</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/subscribe.html">Subscribe</a>
+                <a href="/newsletter.html">Newsletter</a>
+            </div>
+        </section>
+
+    </header>
+
+    <!--
+        The whole "categories" page is divided into two section: one on the left side
+        with the list of articles, and one on the right side with the "Filter" option.
+    -->
+    <main>
+        <section class="container-section">
+            <h1>CATEGORIES</h1>
+            <div class="main-section row justify-content-between">
+                <!--
+                    The first of the two sections of the "categories" page. It contains the list
+                    of all news articles available on the website. Those articles are the same one
+                    available in the "index" page and in the "news" page. The difference here is
+                    that a "tag" is given to each article, and the "filter" option on the right
+                    side of the page gives the ability to the user to filter the news based on 
+                    which "category"/"tag" they have.
+                -->
+                <div class="col-md-8 order-md-first">
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news0">
+                            <!-- First article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news0.jpg" alt="The Band Velvet Vortex performing during one of their latest tours. It is a black and white image capturing the crowd cheering and the band playing">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">NEWS</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>Legendary Band Velvet Vortex Announces Farewell Tour</h3>
+                                        <p class="article-brief">
+                                            In an emotional announcement that reverberated through the music world, the
+                                            band revealed their plans for an epic farewell tour that promises to be a
+                                            historic moment in rock 'n' roll history.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news1">
+                            <!-- Second article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news1.jpg" alt="ThunderStrike band performing live for the tour of their latest album 'Ride the Lightning'">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">RELEASES</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>Band ThunderStrike Drops Surprise Album</h3>
+                                        <p class="article-brief">
+                                            A detailed review of the surprise album released by the popular band,
+                                            dissecting each track's significance and sound.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news2">
+                            <!-- Third article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news2.jpg" alt="The emerging indie rock sensation, captured while holding their instruments in plain air">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">INTERVIEWS</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>An Interview with the Next Big Thing in Indie Rock</h3>
+                                        <p class="article-brief">
+                                            An exclusive interview with an emerging indie rock artist, delving into
+                                            their journey and musical influences.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news3">
+                            <!-- Fourth article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news3.jpg" alt="A close up of two hands that carefully flip through a collection of vintage vinyl records">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">ANALYSIS</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>The Vinyl Comeback in Modern Music: The Old Classic Never Dies</h3>
+                                        <p class="article-brief">
+                                            An in-depth look at the resurgence of vinyl records and their role in the
+                                            contemporary music scene, and how the last decade saw a big change in
+                                            direction.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news4">
+                            <!-- Fifth article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news4.jpg" alt="A behind-the-scene look at the making of the hit music video 'Lovestruck Baby'">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">RELEASES</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>Making of the Hit Music Video "Lovestruck Baby"</h3>
+                                        <p class="article-brief">
+                                            Taking readers behind the scenes of the popular music video's production,
+                                            featuring interviews with the artists.
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news5">
+                            <!-- Sixth article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news5.jpg" alt="The rapper J. Cole caught during one of his live performances">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">ANALYSIS</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>The Evolution of Rap: A Journey Through Lyrics and Beats</h3>
+                                        <p class="article-brief">
+                                            A retrospective analysis of the evolution of rap music over the past decade,
+                                            highlighting key artists and trends.              
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news6">
+                            <!-- Seventh article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news6.jpg" alt="A disk jockey (only one hand visible) DJing in a live performance">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">ANALYSIS</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>New Wave of Electronic Dance Music: Shaping the Sound</h3>
+                                        <p class="article-brief">
+                                            Spotlighting rising electronic dance music artists who are pushing the boundaries of the
+                                            genre, bringing new life to the genre.            
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news7">
+                            <!-- Eight article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news7.jpg" alt="The members of the band Midnight Rebellion sharing a triumphant moment on stage">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">NEWS</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>The Legendary Band Midnight Rebellion Reunites</h3>
+                                        <p class="article-brief">
+                                            Covering the long-awaited reunion of the classic trio and their upcoming tour, igniting
+                                            nostalgia among fans.            
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news8">
+                            <!-- Nineth article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news8.jpg" alt="The band Riot Resonance perfoming live in one of their recent concerts">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">INTERVIEWS</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>The Success Story of the Indie sensation Riot Resonance</h3>
+                                        <p class="article-brief">
+                                            Tracing the Riot Resonance journey from humble beginnings to receiving
+                                            critical acclaim and Grammy recognition.            
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- The article link that brings the user to the "news" page where they can read the whole article. -->
+                        <a href="/news.html#news9">
+                            <!-- Tenth article from the section -->
+                            <article class="news-article">
+                                <!-- News image container: containing the image of each article -->
+                                <div class="news-image-container">
+                                    <img src="/images/news9.jpg" alt="The drummer Joe Emmet caught while perfoming live. The image shows him playing from behind the drumset.">
+                                </div>
+                                <!-- News text container: containing the text part of each article, which includes date and title, the article brief and the tag -->
+                                <div class="news-text-container">
+                                    <div class="row">
+                                        <div class="col">
+                                            <time class="date-and-time" datetime="2023-01-11">January 11, 2023</time>
+                                        </div>
+                                        <div class="col-4">
+                                            <p class="tag">NEWS</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h3>Iconic Drummer Joe Emmet Joins Supergroup</h3>
+                                        <p class="article-brief">
+                                            Exploring the impact of the drummer Joe Emmet joining a new supergroup, with
+                                            insights into the band's potential direction.            
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
+                        </a>
+                        <hr class="solid">
+                    </div>
+                </div>
+
+                <!-- 
+                    The second of the two sections of the "categories" page. It contains the "Filter"
+                    option. By clicking on each option the relative articles with the same "tag"
+                    appear.
+                -->
+                <aside class="col-md-3 order-first">
+                    <hr class="solid">
+                    <h2 class="subsection-title filter-news">FILTER</h2>
+                    <ul class="categories-menu">
+                        <li class="categories-menu-item"><button class="category-link">ALL</button></li>
+                        <li class="categories-menu-item"><button class="category-link">NEWS</button></li>
+                        <li class="categories-menu-item"><button class="category-link">INTERVIEWS</button></li>
+                        <li class="categories-menu-item"><button class="category-link">RELEASES</button></li>
+                        <li class="categories-menu-item"><button class="category-link">ANALYSIS</button></li>
+                    </ul>
+                    <hr class="solid">
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer section which is only decorative -->
+    <footer>
+        <p id="footer-text">&copy; 2023 The Verve. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

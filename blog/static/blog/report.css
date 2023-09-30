@@ -1,0 +1,22 @@
+/* Styles for article briefs */
+.article-brief {
+    margin-top: 10px; /* Add margin at the top */
+    text-align: justify; /* Justify text to occupy all the horizontal space of the container */
+}
+
+/* Styles for images within report image containers */
+.report-image-container img {
+    margin-top: 15px; /* Add margin at the top */
+    border-radius: 2px; /* Apply border radius for rounded corners */
+}
+
+/* Styles for the container containing report articles */
+.report-article-container {
+    margin-top: 50px; /* Add margin at the top */
+}
+
+@media screen and (max-width: 992px) {
+    .article-brief {
+        text-align: start; /* Align text from the left side of the page */
+    }
+}

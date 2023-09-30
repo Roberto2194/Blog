@@ -1,0 +1,181 @@
+/* Styles for the website title */
+#website-title {
+    display: block; /* Set the display property to block */
+    margin: auto; /* Center the element horizontally */
+    align-items: center; /* Center the items inside the element */
+}
+
+/* Styles for featured articles */
+.featured-article {
+    padding: 20px 10px 0px 10px; /* Set padding for spacing */
+}
+
+.featured-article a {
+    color: var(--text-primary); /* Set link color for featured articles */
+}
+
+/* Styles for the featured image container */
+.featured-image-container {
+    padding-bottom: 10px; /* Add padding at the bottom */
+}
+
+/* Styles for news articles */
+.news-article {
+    margin-top: 20px; /* Add spacing above news articles */
+    margin-bottom: 20px; /* Add spacing below news articles */
+}
+
+.news-article a {
+    display: flex; /* Use flex display for links */
+    align-items: center; /* Center items vertically */
+    color: var(--text-primary); /* Set link color for news articles */
+}
+
+/* Styles for the news image container */
+.news-image-container {
+    margin-right: 20px; /* Add spacing between image and text */
+}
+
+/* Styles for the main section */
+.index-main {
+    padding: 0; /* Remove padding */
+}
+
+.main-section {
+    padding: 120px 40px 40px 40px; /* Set padding for the main section */
+    margin: 0px 0px 60px 0px; /* Add margin to the main section */
+    background-color: var(--background-quaternary); /* Set background color */
+}
+
+/* Styles for the secondary section */
+.secondary-section {
+    padding: 0px 40px 40px 40px; /* Set padding for the secondary section */
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+/* Styles for the tertiary section */
+.tertiary-section {
+    display: flex; /* Use flex display */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    padding: 40px; /* Add padding */
+    color: var(--text-tertiary); /* Set text color */
+    background-color: var(--background-secondary); /* Set background color */
+}
+
+/* Styles for the tertiary text container */
+.tertiary-text-container {
+    padding: 0px 40px 0px 20px; /* Add padding */
+    display: flex; /* Use flex display */
+    flex-direction: column; /* Set column layout */
+    row-gap: 20px; /* Add gap between rows */
+}
+
+.tertiary-article-brief {
+    margin-bottom: 20px; /* Add margin at the bottom */
+    color: var(--text-tertiary); /* Set text color */
+}
+
+/* Styles for the index action button */
+.index-action-button {
+    background-color: var(--background-quaternary); /* Set background color */
+    color: var(--background-secondary); /* Set text color */
+    font-weight: bold; /* Set font weight */
+    padding: 10px 20px; /* Set padding */
+    max-width: 200px; /* Set maximum width */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove text decoration */
+    cursor: pointer; /* Use pointer cursor */
+    border-radius: 3px; /* Add border-radius for rounded corners */
+}
+
+/* Styles for the quaternary section */
+.quaternary-section {
+    padding: 20px 40px 40px 40px; /* Set padding for the quaternary section */
+}
+
+/* Styles for vertical elements in a row */
+.vertical-elements-row {
+    display: flex; /* Use flex display */
+    flex-direction: row; /* Set row layout */
+    gap: 1vh; /* Add gap between elements */
+}
+
+/* Styles for vertical news articles */
+.vertical-news-article {
+    padding-left: 20px; /* Add left padding */
+}
+
+/* Styles for the quaternary text container */
+.quaternary-text-container {
+    margin-right: 20px; /* Add right margin */
+}
+
+/* Styles for elements rows */
+.elements-row {
+    margin-bottom: 40px; /* Add margin at the bottom */
+}
+
+/* Styles for the back-up button */
+#back-up-button {
+    position: fixed; /* Fix the button position */
+    display: inline-block; /* Use inline-block display */
+    text-align: center; /* Center text */
+    background-color: var(--background-secondary); /* Set background color */
+    width: 70px; /* Set width */
+    height: 70px; /* Set height */
+    border-radius: 50%; /* Make the button round */
+    bottom: 40px; /* Position from the bottom */
+    right: 20px; /* Position from the right */
+    z-index: 1000; /* Set z-index to ensure visibility */
+    margin: 30px; /* Add margin */
+    transition: opacity .5s, visibility .5s; /* Add transition effects */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+}
+
+#back-up-button:hover {
+    cursor: pointer; /* Use pointer cursor on hover */
+}
+
+#back-up-button.show {
+    opacity: 1; /* Show the button */
+    visibility: visible; /* Show the button */
+}
+
+#back-up-button>img {
+    padding-top: 10px; /* Add padding at the top */
+    height: 60px; /* Set image height */
+    width: 60px; /* Set image width */
+}
+
+@media screen and (max-width: 768px) {
+    .news-image-container {
+        margin-right: 0; /* Set margin right of image to zero for small screens */
+    }
+    
+    .news-article a {
+        display: block; /* Set display to block for small screens */
+    }
+
+    .main-section {
+        padding: 120px 20px 20px 20px; /* Set padding for the main section */
+    }
+
+    .vertical-elements-row {
+        flex-direction: column;
+    }
+
+    .secondary-section {
+        padding: 0px 40px 40px 20px; /* Set padding for the secondary section */
+    }
+
+    .tertiary-section {
+        flex-direction: column;
+        padding: 20px; /* Set padding for the tertiary section */
+    }
+    
+    .quaternary-section {
+        padding: 20px 40px 20px 20px; /* Set padding for the quaternary section */
+    }    
+}

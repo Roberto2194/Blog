@@ -1,0 +1,15 @@
+/* Styles for the newsletter text container */
+.newsletter-text-container {
+    padding: 20px; /* Add padding to the container */
+}
+
+/* Styles for images within the newsletter image container */
+.newsletter-image-container img {
+    border-top-left-radius: 3px; /* Set border radius for the top-left corner */
+    border-top-right-radius: 3px; /* Set border radius for the top-right corner */
+}
+
+/* Styles for vertical news articles */
+.vertical-news-article {
+    text-align: center; /* Center-align text within the vertical news article */
+}

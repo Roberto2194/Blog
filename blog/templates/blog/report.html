@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" class="html-element">
+
+<head>
+    <!-- Required meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- External CSS frameworks and libraries -->
+    <!-- 1. Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- 2. jQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <!-- External CSS stylesheets -->
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/report.css">
+
+    <!-- External JS modules -->
+    <script type="module" src="/scripts/common.js"> </script>
+
+    <!-- Fonts from Google API-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans" rel="stylesheet">
+
+    <!-- Page title -->
+    <title>The Verve - Report</title>
+</head>
+
+<body>
+
+    <!-- 
+        Header Section: contains the website logo, the navigation links and accessibility options.
+        I choose to divide it in two sections. The first one leaning on the left side: from the logo
+        up to the "Newsletter" page link. And the second on leaning on the right side containing
+        "Report" and the "Accessibility" logo that opens up the accessibility side menu when clicked.
+    -->
+    <header>
+        <!-- Nav Bar for big screens -->
+        <nav class="row justify-content-between d-none d-md-flex">
+            <!-- 
+                The first of the two sections of the navigation for the website: from the logo
+                up to the "Newsletter" page link
+            -->
+            <div id="main-navigation" class="col-md-6">
+                <!-- Website logo -->
+                <a href="/index.html"><img id="website-logo" src="/images/v-logo.png"
+                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+                <!-- Navigation links -->
+                <a href="/index.html">Home</a>
+                <a href="/news.html">News</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/subscribe.html">Subscribe</a>
+                <a href="/newsletter.html">Newsletter</a>
+            </div>
+            <!-- 
+                The second of the two sections of the navigation for the website: the report 
+                and "Accessibility" logo button. 
+            -->
+            <div id="side-navigation" class="col-md-2">
+                <a href="/report.html">Report</a>
+                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
+                <button id="accessibility-button" class="open-menu-button">
+                    <img id="website-accessibility-menu" src="/images/accessibility-icon.png"
+                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
+                </button>
+            </div>
+        </nav>
+
+        <!-- 
+            Accessibility side menu containing options for increasing/decreasing the font size
+            and for regulating the dark/light mode for the whole website
+        -->
+        <section id="side-menu" class="side-navigation-menu">
+            <!-- 
+                The close side menu button that shows up on the top right when the side accessibility
+                menu is open.
+            -->
+            <button class="close-menu-button">&times;</button>
+            <h2 id="accessibility-title">ACCESSIBILITY</h2>
+            <!-- Accessibility options: light/dark mode and font size -->
+            <div class="side-menu-buttons">
+                <!-- The first of the two accessibility options: View Mode -->
+                <h3>View mode:</h3>
+                <div id="view-mode-group" class="btn-group" role="group">
+                    <!-- Light mode button -->
+                    <button id="light-mode" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/light-mode.svg"
+                            alt="Light mode icon: it displays an empty moon in order to indicate light">
+                        <span class="side-menu-mode-text">&nbsp;Light</span>
+                    </button>
+                    <!-- Dark mode button -->
+                    <button id="dark-mode" type="button" class="btn btn-secondary side-menu-button">
+                        <span class="side-menu-mode-text">Dark&nbsp;</span>
+                        <img src="/images/dark-mode.svg"
+                            alt="Dark mode icon: it displays a full moon in order to indicate darkness">
+                    </button>
+                </div>
+                <!-- The second of the two accessibility options: Font Size -->
+                <h3>Font size:</h3>
+                <div id="font-size-group" class="btn-group" role="group">
+                    <!-- Small font size button -->
+                    <button id="font-size-small" type="button" class="btn btn-secondary side-menu-button">
+                        <span class="side-menu-mode-text">-</span>
+                        <img src="/images/font-size.svg"
+                            alt="Small font size icon: it is the letter 'A' with a minus sign preceding it">
+                    </button>
+                    <!-- Normal font size button -->
+                    <button id="font-size-normal" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/font-size.svg" alt="Normal font size icon: it is just the letter 'A'">
+                    </button>
+                    <!-- Big font size button -->
+                    <button id="font-size-big" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/font-size.svg"
+                            alt="Big font size icon: it is the letter 'A' with a plus sign afterwards">
+                        <span class="side-menu-mode-text">+</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nav Bar for small screens -->
+        <nav class="row justify-content-between d-md-none d-flex">
+            <div class="col-2">
+                <a href="/index.html"><img id="website-logo-small-screen" src="/images/v-logo.png"
+                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+            </div>
+
+            <div class="col-7">
+                <a href="/report.html">Report</a>
+                <button id="menu-button" class="open-small-screens-menu-button">
+                    <img id="website-small-menu" src="/images/bars-menu.svg" alt="">
+                </button>
+                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
+                <button id="accessibility-button-small-screen" class="open-menu-button">
+                    <img id="website-accessibility-menu-small-screen" src="/images/accessibility-icon.png"
+                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
+                </button>
+            </div>
+        </nav>
+
+        <!-- Small screens side menu containing navigation options -->
+        <section id="small-screens-menu" class="side-navigation-menu">
+            <!--  The close side menu button that shows up on the top right when the menu is open. -->
+            <button class="close-menu-button">&times;</button>
+            <h2 id="navigation-title">NAVIGATION</h2>
+            <!-- Navigation options -->
+            <div class="small-screens-menu-buttons">
+                <a href="/index.html">Home</a>
+                <a href="/news.html">News</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/subscribe.html">Subscribe</a>
+                <a href="/newsletter.html">Newsletter</a>
+            </div>
+        </section>
+
+    </header>
+
+    <main>
+        <section class="container-section">
+            <h1>Report</h1>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2>About</h2>
+                    <p class="article-brief"> Hi! My name is Roberto Liccardo, and I am a Software Engineer
+                        specializing in Native Mobile Development with over 4 years of professional experience in
+                        the field. I am proficient in both iOS and Android Development and I am currently pursuing a
+                        BSc in Computer Science with a specialization in Machine Learning and Artificial
+                        Intelligence at this University. I am passionate about all aspects of Computer Science and
+                        advocate for Clean Code and Best Practices in Software Development. </p>
+                    <p class="article-brief"> Web Development is a world that has always fascinated me, but I have never
+                        had the chance to explore it further. That is why this module has been an entirely new and
+                        exciting journey for me. Working on this project has been a significant learning experience,
+                        sparking my curiosity about all there is left to learn. This includes diving into back-end web
+                        development, such as Python and Django, as well as exploring front-end frameworks like Angular
+                        and React. I know that there is a world still for me to discover, and I am very excited to find
+                        out where this will lead me and how it will shape my future career in Software Engineering. </p>
+                    <p class="article-brief"> Learning HTML, CSS, and JavaScript has opened up a whole new realm of
+                        possibilities for me. I have always dreamt of having a personal website, a platform to showcase
+                        my projects, ideas, and thoughts. It's not just about building a website; it's about creating a
+                        digital space that reflects my personality and passions—a place where I can express myself
+                        creatively and professionally. Thanks to the skills I've acquired through this module on Web
+                        Development, that dream has now become a reality. </p>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2> Introduction: What is the essential story being told by your site and what type of structure
+                        did you choose to implement? </h2>
+                    <p class="article-brief"> The website is designed to provide a platform for music news and related
+                        content, such as album reviews, in-depth analysis of music genres, and interviews with artists
+                        similar in spirit to well-known publications like Rolling Stone or Pitchfork. Being a music
+                        enthusiast and a guitarist myself, I chose to create a website that could reflect my passion and
+                        love for music in all its forms. I wanted it to not only cover the latest trends and concerts
+                        but also delve into the history of rock music, offering insights, retrospectives, and perhaps
+                        even exclusive interviews with artists who have influenced the genre. </p>
+                    <p class="article-brief"> My goal was to ensure that each page looked visually distinct and served a
+                        unique purpose, enhancing the overall user experience, all while maintaining a cohesive theme
+                        throughout the website. The landing page displays a collection of the latest news articles and
+                        serves as a guide for user navigation. Simultaneously, the categories page simplifies content
+                        discovery through tag-based filtering, ensuring users can quickly locate news relevant to their
+                        interests. The newsletter and subscribe pages encourage community engagement, while the news
+                        page offers a minimalist, elegant layout, ensuring users can easily find and enjoy the
+                        music-related content they seek. Furthermore, the website's color palette was carefully selected
+                        to evoke the emotions associated with music. I chose a vibrant yet harmonious color palette
+                        consisting of yellow, orange, and red, resonating with the passion and energy of music. </p>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2> Inspiration: State 3 things that have inspired you when creating your website (e.g. guest
+                        speakers, websites, artists, blogs) </h2>
+                    <p class="article-brief"> It's hard for me to choose just three sources of inspiration that led me
+                        to create this website. As a lifelong music enthusiast, I see this website is the culmination of
+                        my two-decade journey with music. I could list countless music magazines, artists, and websites
+                        that have influenced me in the creation of this platform. However, if I were to distill these
+                        diverse influences into three key sources of inspiration, they would be as follows: </p>
+                    <ol>
+                        <li class="article-brief"> Piero Scaruffi Website: Piero Scaruffi's website has been a source of
+                            inspiration and insights for me for the longest time. Scaruffi is renowned for his
+                            meticulous curation of music reviews and cultural analysis. His in-depth exploration and
+                            encyclopedic knowledge of music have always fascinated me. His website is simple, yet
+                            extremely rich in content and served as a model for what I aimed to achieve. I wanted to
+                            create a platform that prioritizes the substance and depth of music-related content while
+                            maintaining a more down-to-earth, yet engaging, user interface. Scaruffi's long-standing
+                            dedication to music and his unique perspective, although criticized by some, have had an
+                            enormous influence on my journey to create a space where music enthusiasts can discover,
+                            explore, and celebrate their passion. </li>
+                        <li class="article-brief"> The /mu/ 4chan Community: I am finding it difficult to identify
+                            another community that has had such a significant and influential role in my musical journey
+                            as /mu/. I would even go so far as to say that this community epitomizes the unifying power
+                            of music across the vast landscape of the internet. It has shown me the value of nurturing
+                            meaningful conversations and sharing enthusiasm among music aficionados. My aspiration was
+                            to construct a welcoming and inclusive space for music enthusiasts, shaped by this spirit.
+                        </li>
+                        <li class="article-brief"> My Longtime Passion for Music: My personal connection to music, as a
+                            guitarist and composer, has been another immense inspiration for the development of this
+                            website. Over the years, my character and musical tastes have evolved hand in hand. This
+                            deep-rooted personal connection to music is what fueled me to create this website, ensuring
+                            that it resonates with others who share the same enthusiasm and devotion for this beautiful
+                            art form. </li>
+                    </ol>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2> Accessibility: State 3 ways in which your site is accessible. </h2>
+                    <p class="article-brief"> I have designed this website with accessibility in mind, by extensively
+                        employing semantic HTML elements such as &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;,
+                        &lt;footer&gt;, &lt;section&gt;, and &lt;article&gt;; these elements not only provide structure
+                        to the website but also help assistive technologies in comprehending and navigating its content.
+                        To enhance accessibility, I've included a dedicated &quot;Accessibility&quot; menu at the top
+                        right of the navigation bar, providing users with the flexibility to switch between light and
+                        dark modes and adjust font sizes as needed. Additionally, I've incorporated descriptive alt text
+                        for images throughout the website. Alt text ensures that users with visual impairments can
+                        understand the content and context of images, even when they cannot see them. In essence, the
+                        primary focus of site accessibility revolved around these aspects:
+                    <ol>
+                        <li class="article-brief"> Color and Text Contrast: Ensuring sufficient color contrast is
+                            crucial for accessibility. I aimed to ensure that the website incorporates a carefully
+                            curated color palette that aligns with the Web Content Accessibility Guidelines (WCAG). This
+                            entails maintaining adequate contrast between text and background colors to ensure
+                            readability for all users, including those with visual impairments. </li>
+                        <li class="article-brief"> Adjustable Font Size: Considering that users have diverse needs, I
+                            have implemented a feature that enables users to adjust the font size according to their
+                            preferences. This functionality is particularly valuable for individuals with low vision or
+                            reading difficulties, as it ensures that the content remains easily legible and comfortable
+                            to read. </li>
+                        <li class="article-brief"> Light and Dark Mode: I have implemented Light and Dark Mode themes to
+                            accommodate users' diverse preferences and sensitivities to light. This feature is
+                            especially useful for individuals with light sensitivity or those who prefer reading in
+                            different lighting conditions. Users can easily switch between themes for a more comfortable
+                            browsing experience. </li>
+                    </ol>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2> Usability: State 3 ways in which you considered the usability of your site. </h2>
+                    <p class="article-brief"> When designing this website, my goal was to create simple yet effective
+                        layouts with clear and intuitive navigation between the elements. These principles serve as the
+                        foundation for the site's overall usability strategy. In essence, the primary focus of site
+                        usability revolved around these aspects: </p>
+                    <ol>
+                        <li class="article-brief"> Clean and Intuitive Layout: I've prioritized simplicity in the
+                            website's layouts, ensuring that navigation between elements is clear and intuitive. Each
+                            page serves a specific purpose and has a clean, straight to-the-point design. </li>
+                        <li class="article-brief"> Fast Loading of Resources: Following industry best practices, which
+                            emphasize loading only what is essential for improved website performance, I made the
+                            deliberate choice of separating the JavaScript and CSS code into page-specific files, while
+                            keeping the common elements inside a &quot;common&quot; file. This approach prevents
+                            unnecessary resource loading, resulting in enhanced site performance. While the difference
+                            may not be immediately apparent on a small website like mine, it's a forward-thinking
+                            strategy that will prove invaluable as the site grows in terms of users and content. With
+                            potentially hundreds of thousands of daily visitors and thousands of pages, this strategy
+                            ensures that users can access content quickly and seamlessly. </li>
+                        <li class="article-brief"> Fixed Navigation Bar: In order to make navigation easy to access, the
+                            Navigation Bar remains fixed at the top of the page while scrolling, ensuring that
+                            navigation links are always accessible. This is why I have included an
+                            &quot;Accessibility&quot; option at the top right of the navigation bar, making it easily
+                            accessible at any moment. </li>
+                    </ol>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2> Learning: State 3 things you had to learn or find out to create your site. How did you achieve
+                        that? </h2>
+                    <p class="article-brief"> My goal for this final project was to build upon what I had already
+                        learned during the Midterm project. During the Midterm project, I acquired a general
+                        understanding of fundamental web development tools, such as HTML, CSS. I wanted this final
+                        project to start where I left with the midterm. I aimed not only to create a functional website
+                        but also to delve deeper into more advanced techniques and tools: </p>
+                    <ol>
+                        <li class="article-brief"> Bootstrap Layout System: One of the essential aspects I needed to
+                            learn was how to effectively use the Bootstrap layout and grid system. Bootstrap's grid
+                            system is built on top of flexbox, which is available by default in CSS, and they are
+                            completely interoperable. It uses containers, rows, and columns to organize and align
+                            content. To learn how to use it properly, I thoroughly reviewed the official Bootstrap
+                            documentation and also referred to online tutorials on W3Schools. Both of these resources
+                            served as excellent references. </li>
+                        <li class="article-brief"> jQuery: Incorporating jQuery into the website was another essential
+                            learning experience. jQuery is a JavaScript library that simplifies complex JavaScript
+                            functionalities and makes it easier to interact with the DOM and handle events. I already
+                            had some prior knowledge of JavaScript, which helped me acquire proficiency in jQuery
+                            quickly. I have used it to simplify user interactions with the website, for example the
+                            &quot;Filter&quot; feature on &quot;Categories&quot; page and integrating the
+                            &quot;Accessibility&quot; features like Dark and Light Mode. jQuery made it so easy for me
+                            to implement those features, while reducing enormously the amout of code required in order
+                            to code them. </li>
+                        <li class="article-brief"> Generic/Specific CSS Components: Creating a cohesive yet customizable
+                            design required careful consideration of CSS components. I needed to strike a balance
+                            between generic styles that could be applied consistently throughout the website and
+                            specific styles that allowed for page-specific customization. To achieve this, I studied CSS
+                            best practices and modular design principles. I learned how to create reusable CSS classes
+                            and components that maintained consistency across the site, such as typography styles, color
+                            schemes, and button designs. Simultaneously, I was able to make page-specific customizations
+                            by building upon the generic CSS components. This technique proved extremely valuable
+                            because every time I wanted to make a change to the website, it became more manageable due
+                            to its modular nature. I could modify just one line of CSS, and suddenly, all the same
+                            components had the same modification applied to them. </li>
+                    </ol>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2> Evaluation I: What aspects of your work do you think were particularly successful? Why? </h2>
+                    <p class="article-brief"> I believe my industry experience in Mobile Development was immensely
+                        helpful in grasping fundamental concepts that also apply to Web Development. While Web and
+                        Mobile are distinct domains, they share a significant overlap in concepts. Transitioning these
+                        concepts from mobile to web was a smoother process due to my prior knowledge. Nonetheless,
+                        considering that this website is only the second one I have created in my life, with the first
+                        being the Midterm project, I am genuinely proud of what I have accomplished. </p>
+                    <p class="article-brief"> I take great satisfaction in the overall look and feel of the website. I
+                        believe that the colors I have chosen and the fonts blend harmoniously, creating a visually
+                        pleasing and cohesive design. Striking the right balance between text and images was a
+                        significant challenge, but I am pleased with the outcome. Unlike some websites that tend to be
+                        dominated by either an overwhelming amount of text or an excess of images, I believe I was able
+                        to maintain a harmonious equilibrium. What I particularly appreciate is the distinct identity of
+                        each page. They don't simply mirror one another but have their own unique character. This
+                        differentiation enhances user engagement and ensures that each section serves its intended
+                        purpose effectively. As a result, I have managed to create a website that I'm proud to showcase,
+                        especially considering it's only my second &quot;venture&quot; into web development. </p>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2> Evaluation II: What aspects of your work could be improved? How might you do things differently
+                        another time? </h2>
+                    <p class="article-brief"> Although I can consider myself fairly satisfied with the overall look and
+                        feel of the website, I acknowledge that there is room for improvement in terms of achieving a
+                        truly professional and polished design. In future projects, I plan to delve deeper into design
+                        principles and draw inspiration from established websites known for their excellent aesthetics
+                        (I particularly admire the designs of websites like Apple and GitHub). Collaborating with
+                        experienced designers or seeking feedback from design communities could also be beneficial in
+                        achieving a more refined and sophisticated design. Ultimately, the goal is to create a website
+                        that is as visually pleasing as possible, both in terms of user interface and user experience.
+                    </p>
+                    <p class="article-brief"> To make the website more engaging and dynamic, incorporating multimedia
+                        content is essential. This could involve embedding videos, audio clips, or podcasts related to
+                        music. Multimedia content not only enhances the user experience but also caters to a more
+                        diverse community. Users who prefer visual or auditory content can benefit from a broader range
+                        of materials. Additionally, interactive elements like quizzes, polls, or, more generally, any
+                        user-generated content, can encourage visitors to actively participate in the website's
+                        community, fostering a sense of belonging. </p>
+                    <p class="article-brief"> While the website currently utilizes JavaScript and jQuery for certain
+                        features, there is potential to make it more interactive. In future projects, I would like to
+                        explore more opportunities to integrate real-time features, such as live chat or discussion
+                        forums. Increasing interaction with the website could be a vehicle to foster the community.
+                        Moreover, JavaScript and jQuery can be used to implement a recommendation system that help users
+                        discover relevant music content and find suggestions for their own tastes more effectively. </p>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2> Resources: What resources did you use in your work? List any sources of information, libraries,
+                        plugins, code or tools (you should also indicate inclusions from other sources within your code
+                        using comments) </h2>
+                    <p class="article-brief"> I utilized the following resources for the coding part of the website,
+                        including HTML, CSS, and JavaScript (jQuery): </p>
+                    <ol class="article-brief">
+                        <li>W3 Schools, HTML documentation <a href="https://www.w3schools.com/html/">[link]</a>
+                        </li>
+                        <li>W3 Schools, CSS documentation <a href="https://www.w3schools.com/css/">[link]</a>
+                        </li>
+                        <li>W3 Markup Validation Service <a href="https://validator.w3.org/">[link]</a>
+                        </li>
+                        <li>jQuery official Documentation <a href="https://jquery.com/">[link]</a>
+                        </li>
+                    </ol>
+                    <p class="article-brief"> Similarly, the following resources helped with the design aspect of the
+                        website, including icons, images, and newspaper articles: </p>
+                    <ol class="article-brief">
+                        <li>Web Platform Design Principles <a href="https://www.w3.org/TR/design-principles/">[link]</a>
+                        </li>
+                        <li>Font Awesome <a href="https://fontawesome.com/">[link]</a>
+                        </li>
+                        <li>Unsplash <a href="https://unsplash.com/">[link]</a>
+                        </li>
+                        <li>Rytr <a href="https://rytr.me/">[link]</a>
+                        </li>
+                    </ol>
+                </article>
+            </div>
+
+            <div class="row justify-content-center">
+                <article class="col-md-8">
+                    <h2>Appendices: Site map (if useful), wireframes and mock-ups</h2>
+                    <div>
+                        <h3>Site map</h3>
+                        <img src="/images/site-map.png" alt="Site Map">
+                    </div>
+                    <div>
+                        <h3>Wireframe Web</h3>
+                        <img src="/images/index_page_web.png" alt="Web Index Page Wireframe">
+                        <img src="/images/news_page_web.png" alt="Web News Page Wireframe">
+                        <img src="/images/categories_page_web.png" alt="Web Categories Page Wireframe">
+                        <img src="/images/subscribe_page_web.png" alt="Web Subscribe Page Wireframe">
+                        <img src="/images/newsletter_page_web.png" alt="Web Newsletter Page Wireframe">
+                    </div>
+                    <div>
+                        <h3>Wireframe Mobile</h3>
+                        <img src="/images/index_page_mobile.png" alt="Mobile Index Page Wireframe">
+                        <img src="/images/news_page_mobile.png" alt="Mobile News Page Wireframe">
+                        <img src="/images/categories_page_mobile.png" alt="Mobile Categories Page Wireframe">
+                        <img src="/images/subscribe_page_mobile.png" alt="Mobile Subscribe Page Wireframe">
+                        <img src="/images/newsletter_page_mobile.png" alt="Mobile Newsletter Page Wireframe">
+                    </div>
+                    <div>
+                        <h3>Mockups Web</h3>
+                        <img src="/images/index_page_mockup.png" alt="Mockup of Index Page Web Version">
+                        <img src="/images/news_page_mockup.png" alt="Mockup of News Page Web Version">
+                        <img src="/images/categories_page_mockup.png" alt="Mockup of Categories Page Web Version">
+                        <img src="/images/subscribe_page_mockup.png" alt="Mockup of Subscribe Page Web Version">
+                        <img src="/images/newsletter_page_mockup.png" alt="Mockup of Newsletter Page Web Version">
+                    </div>
+                    <div>
+                        <h3>Mockups Mobile</h3>
+                        <img src="/images/index_page_mockup_mobile.png" alt="Mockup of Index Page Mobile Version">
+                        <img src="/images/news_page_mockup_mobile.png" alt="Mockup of News Page Mobile Version">
+                        <img src="/images/categories_page_mockup_mobile.png" alt="Mockup of Categories Page Mobile Version">
+                        <img src="/images/subscribe_page_mockup_mobile.png" alt="Mockup of Subscribe Page Mobile Version">
+                        <img src="/images/newsletter_page_mockup_mobile.png" alt="Mockup of Newsletter Page Mobile Version">
+                    </div>
+                </article>
+            </div>
+
+        </section>
+    </main>
+    <!-- Footer section which is only decorative -->
+    <footer>
+        <p id="footer-text">&copy; 2023 The Verve. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

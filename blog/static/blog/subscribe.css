@@ -1,0 +1,94 @@
+/* Styles for images within the news image container */
+.news-image-container img {
+    height: 200px; /* Set image height */
+    margin-bottom: 20px; /* Add margin at the bottom */
+}
+
+/* Styles for subscribe articles */
+.subscribe-article {
+    flex: 1; /* Equal flex distribution between the three articles */
+    padding: 20px; /* Add padding to the entire article */
+}
+
+/* Styles for text within the subscribe text container */
+.subscribe-text-container {
+    align-items: center; /* Center-align items vertically */
+    text-align: center; /* Center-align text */
+}
+
+/* Styles for the subscribe benefits list */
+.subscribe-benefits {
+    list-style: none; /* Remove list bullets */
+}
+
+/* Styles for checkmark images */
+.checkmark {
+    height: 20px; /* Set height */
+    width: auto; /* Set width automatically */
+}
+
+/* Styles for columns of elements */
+.elements-col {
+    display: flex; /* Use flex display */
+    flex-direction: column; /* Set column layout */
+    gap: 2vh; /* Add gap between elements */
+    margin-left: 150px; /* Add left margin */
+    margin-right: 150px; /* Add right margin */
+}
+
+@media screen and (max-width: 768px) {
+    .elements-col {
+      margin: 0;
+    }
+}  
+
+/* Styles for extra subscribe articles */
+.subscribe-article-extra {
+    max-width: 100%; /* Allow content to take full width within parent */
+    display: flex; /* Use flex display */
+    align-items: center; /* Center-align items vertically */
+    justify-content: space-between; /* Add space between items */
+    padding: 20px; /* Add padding to the article */
+}
+
+/* Styles for text within the subscribe extra text container */
+.subscribe-extra-text-container {
+    flex: 1; /* Use flex to fill available space */
+}
+
+/* Styles for the subscribe main section */
+.subscribe-main {
+    padding: 0; /* Remove padding */
+}
+
+/* Styles for the primary section */
+.primary-section {
+    background-color: var(--background-quaternary); /* Set background color */
+    padding: 160px 80px 40px 80px; /* Set padding */
+}
+
+/* Styles for the secondary section */
+.secondary-section {
+    align-items: center; /* Center-align items vertically */
+    text-align: center; /* Center-align text */
+    padding: 80px; /* Set padding */
+}
+
+/* Styles for the choose subscription text */
+.choose-subscription {
+    font-size: 70px; /* Set font size */
+}
+
+@media screen and (max-width: 768px) {
+    .primary-section {
+        padding: 120px 20px 40px 20px; /* Set padding */
+    }
+
+    .secondary-section {
+        padding: 20px; /* Set padding */
+    }
+
+    .choose-subscription {
+        font-size: 45px; /* Set font size */
+    }
+}

@@ -1,0 +1,400 @@
+/* Custom CSS variables for light and dark modes */
+:root {
+  /* LIGHT MODE */
+  --text-primary: #000000; /* Primary text color */
+  --text-secondary: #333333; /* Secondary text color */
+  --text-tertiary: #eee2de; /* Tertiary text color */
+  --text-quaternary: #213555; /* Quaternary text color */
+  --shadow-box: #e1dcdc; /* Shadow color for boxes */
+  --background-primary: #FFFFFF; /* Primary background color */
+  --background-secondary: #A21232; /* Secondary background color */
+  --background-tertiary: #f7f7f7; /* Tertiary background color */
+  --background-quaternary: #FFD257; /* Quaternary background color */
+
+  /* DARK MODE */
+  --dark-text-primary: #FFFFFF; /* Dark mode primary text color */
+  --dark-text-secondary: #CCCCCC; /* Dark mode secondary text color */
+  --dark-text-tertiary: #d5dbdd; /* Dark mode tertiary text color */
+  --dark-text-quaternary: #dacac4; /* Dark mode quaternary text color */
+  --dark-background-primary: #222831; /* Dark mode primary background color */
+  --dark-background-secondary: #7B113A; /* Dark mode secondary background color */
+  --dark-background-tertiary: #191919; /* Dark mode tertiary background color */
+  --dark-background-quaternary: #0c1117; /* Dark mode quaternary background color */
+}
+
+/* Resetting some default styles for common elements */
+body,
+h1,
+h2,
+p,
+ul,
+li {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Styles for the body element */
+body {
+  font-family: "Noto Sans", 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; /* Set font family */
+  max-width: 1400px; /* Set maximum width */
+  margin: 0 auto; /* Center-align content horizontally */
+  color: var(--text-primary); /* Set text color */
+  background-color: var(--background-tertiary); /* Set background color */
+}
+
+/* Styles for the header element */
+header {
+  background-color: var(--background-secondary); /* Set background color */
+  padding: 1rem; /* Add padding */
+  position: fixed; /* Fixed positioning to keep the header at the top */
+  z-index: 1000; /* Set a high z-index to ensure the header stays on top */
+  width: 100%; /* Full width of the viewport */
+  max-width: 1400px; /* Set maximum width */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+}
+
+/* Styles for main and side navigation elements */
+#main-navigation,
+#side-navigation {
+  display: flex; /* Use flex display */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center-align items vertically */
+}
+
+#side-navigation {
+  margin-right: 40px; /* Add right margin */
+}
+
+/* Styles for navigation links */
+nav {
+  align-items: center; /* Center-align items vertically */
+}
+
+#website-logo, #website-logo-small-screen {
+  min-height: 50px; /* Set image min height */
+  min-width: 50px; /* Set image min width */
+  max-height: 50px; /* Set image max height */
+  max-width: 50px; /* Set image max width */
+}
+
+#website-accessibility-menu, #website-accessibility-menu-small-screen, #website-small-menu {
+  min-height: 40px; /* Set image min height */
+  min-width: 40px; /* Set image min width */
+  max-height: 40px; /* Set image max height */
+  max-width: 40px; /* Set image max width */
+}
+
+/* Styles for navigation links */
+nav a {
+  color: var(--text-tertiary); /* Set link color */
+  padding: 10px; /* Add padding */
+  transition: color 0.3s; /* Add color transition */
+}
+
+nav a:hover {
+  color: var(--background-quaternary); /* Change link color on hover */
+}
+
+/* Styles for main content section */
+main {
+  padding: 120px 40px 40px 40px; /* Add padding */
+  background-color: var(--background-primary); /* Set background color */
+}
+
+/* Styles for the footer element */
+footer {
+  background-color: var(--background-secondary); /* Set background color */
+  text-align: center; /* Center-align text */
+  padding: 1rem; /* Add padding */
+}
+
+/* Styles for the footer text */
+#footer-text {
+  color: var(--text-tertiary); /* Set text color */
+}
+
+/* Styles for various heading levels */
+h1 {
+  font-family: Oswald, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Set font family */
+  font-size: 80px; /* Set font size */
+  color: var(--background-secondary); /* Set text color */
+  letter-spacing: .2rem; /* Set letter spacing */
+  font-weight: bolder; /* Set font weight */
+}
+
+h2 {
+  font-family: Oswald, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Set font family */
+  font-size: 36px; /* Set font size */
+  letter-spacing: .1rem; /* Set letter spacing */
+  padding-top: 10px; /* Add padding at the top */
+  padding-bottom: 10px; /* Add padding at the bottom */
+}
+
+h3 {
+  font-family: Oswald, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Set font family */
+  font-size: 28px; /* Set font size */
+  letter-spacing: .1rem; /* Set letter spacing */
+  color: var(--text-primary); /* Set text color */
+  padding-top: 10px; /* Add padding at the top */
+}
+
+h4 {
+  font-family: Oswald, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Set font family */
+  font-size: 24px; /* Set font size */
+  letter-spacing: .1rem; /* Set letter spacing */
+}
+
+h5 {
+  font-family: Oswald, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Set font family */
+  font-size: 18px; /* Set font size */
+  letter-spacing: .1rem; /* Set letter spacing */
+  font-weight: bold; /* Set font weight */
+}
+
+/* Styles for paragraphs */
+p {
+  font-weight: lighter; /* Set font weight to lighter */
+  color: var(--text-primary); /* Set text color */
+}
+
+/* Styles for images */
+img {
+  max-width: 100%; /* Set maximum width */
+  height: auto; /* Automatically adjust height */
+}
+
+/* Styles for anchor links */
+a {
+  text-decoration: none; /* Remove text decoration */
+}
+
+/* Styles for figures */
+figure {
+  padding: 15px; /* Add padding */
+}
+
+/* Styles for buttons */
+button {
+  border: 1px solid var(--shadow-box); /* Add border with shadow effect */
+}
+
+/* Styles for action buttons */
+.action-button {
+  padding: 10px 20px; /* Add padding */
+  background-color: var(--background-secondary); /* Set background color */
+  color: var(--text-tertiary); /* Set text color */
+  text-align: center; /* Center-align text */
+  text-decoration: none; /* Remove text decoration */
+  cursor: pointer; /* Change cursor on hover */
+  border-radius: 3px; /* Add border radius for rounded corners */
+}
+
+/* Styles for larger buttons */
+.larger-button {
+  display: inline-block; /* Use inline-block display */
+  margin: 10px; /* Add margin */
+  margin-bottom: 20px; /* Add margin at the bottom */
+  width: 90%; /* Set width */
+}
+
+/* Styles for container sections */
+.container-section {
+  display: flex; /* Use flex display */
+  flex-direction: column; /* Set flex direction to column */
+  gap: 4vh; /* Add gap between items */
+}
+
+@media screen and (min-width: 768px) {
+  .container-section {
+    padding: 4vh; /* Add padding */
+  }
+}
+
+/* Styles for rows of elements */
+.elements-row {
+  display: flex; /* Use flex display */
+  flex-direction: row; /* Set flex direction to row */
+  gap: 4vh; /* Add gap between items */
+}
+
+@media screen and (max-width: 1140px) {
+  .elements-row {
+    flex-direction: column; /* Set flex direction to col */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 52px; /* Set font size */
+  }
+}
+
+/* Styles for date and time */
+.date-and-time {
+  font-size: 14px; /* Set font size */
+  color: var(--text-quaternary); /* Set text color */
+}
+
+/* Styles for article briefs */
+.article-brief {
+  font-size: 18px; /* Set font size */
+  color: var(--text-secondary); /* Set text color */
+}
+
+/* Styles for boxy articles */
+.boxy-article {
+  border: 1px solid var(--shadow-box); /* Add border with shadow effect */
+  width: 100%; /* Set width to 100% */
+  border-radius: 1px; /* Add border radius for rounded corners */
+  background-color: var(--background-primary); /* Set background color */
+}
+
+/* Styles for news image containers */
+.news-image-container {
+  text-align: center; /* Center-align text */
+}
+
+.news-image-container img {
+  max-width: 100%; /* Set maximum width */
+  height: auto; /* Automatically adjust height */
+  border-radius: 1px; /* Add border radius for rounded corners */
+}
+
+/* Styles for tags */
+.tag {
+  text-align: center; /* Center-align text */
+  color: var(--background-secondary); /* Set text color */
+  letter-spacing: 0.5px; /* Set letter spacing */
+  padding: 5px 0px 5px 0px; /* Add padding */
+  font-weight: bold; /* Set font weight to bold */
+  background: var(--background-quaternary); /* Set background color */
+  border-radius: 5px; /* Add border radius for rounded corners */
+}
+
+/* Styles for subsection titles */
+.subsection-title {
+  color: var(--background-secondary); /* Set text color */
+  text-align: center; /* Center-align text */
+}
+
+/* Styles for vertical news articles */
+.vertical-news-article {
+  align-items: center; /* Center-align items vertically */
+}
+
+/* Styles for vertical news article titles */
+.vertical-news-article-title {
+  text-align: center; /* Center-align text */
+}
+
+/* Styles for vertical lines */
+.vertical-line {
+  margin: 0; /* Remove margin */
+  border-left: 2px solid var(--shadow-box); /* Add vertical line */
+}
+
+/* Styles for intersection titles */
+.intersection-title {
+  color: var(--text-secondary); /* Set text color */
+  padding-left: 20px; /* Add padding on the left */
+  margin-top: 40px; /* Add margin at the top */
+  margin-bottom: 40px; /* Add margin at the bottom */
+}
+
+/* Styles for side navigation menu */
+.side-navigation-menu {
+  height: 100%; /* Set height to 100% */
+  width: 0; /* Initial width */
+  position: fixed; /* Fixed positioning */
+  z-index: 10000; /* Set a high z-index */
+  top: 0; /* Position at the top */
+  right: 0; /* Position at the right */
+  background-color: var(--background-quaternary); /* Set background color */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  padding-top: 60px; /* Add padding at the top */
+}
+
+.side-navigation-menu h2 {
+  padding: 8px 8px 8px 40px; /* Add padding */
+  color: var(--text-primary); /* Set text color */
+  display: block; /* Use block display */
+}
+
+.side-navigation-menu a:hover {
+  color: var(--text-tertiary); /* Change link color on hover */
+}
+
+.side-navigation-menu .close-menu-button {
+  position: absolute; /* Absolute positioning */
+  color: var(--background-secondary); /* Set text color */
+  top: 0; /* Position at the top */
+  right: 25px; /* Position at the right */
+  font-size: 50px; /* Set font size */
+  margin-left: 50px; /* Add margin on the left */
+  background-color: transparent; /* Set background color to transparent */
+  border: none; /* Remove borders */
+}
+
+/* Styles for accessibility button */
+#accessibility-button, #accessibility-button-small-screen, #menu-button {
+  background: none; /* Set background to none */
+  border: 1px solid var(--background-quaternary); /* Add border */
+  border-radius: 2px; /* Add border radius */
+  padding: 0; /* Remove padding */
+  cursor: pointer; /* Change cursor */
+}
+
+.side-menu-buttons {
+  display: flex; /* Use flex display */
+  flex-direction: column; /* Set flex direction to column */
+  justify-content: space-between; /* Space between items */
+  margin-top: 40px; /* Add margin at the top */
+}
+
+.side-menu-buttons h3 {
+  margin-left: 20px; /* Add margin on the left */
+}
+
+.side-menu-button {
+  display: flex; /* Use flex display */
+  align-items: center; /* Center-align items vertically */
+  justify-content: center; /* Center-align items horizontally */
+  margin: 0px 20px 10px 20px; /* Add margins */
+  padding: 10px 10px 10px 10px; /* Add padding */
+  background-color: var(--background-secondary); /* Set background color */
+  color: var(--background-primary); /* Set text color */
+}
+
+.side-menu-button:hover {
+  background-color: var(--background-secondary); /* Change background color on hover */
+  color: var(--background-primary); /* Change text color on hover */
+}
+
+.side-menu-button span {
+  padding-left: 5px; /* Add padding on the left */
+  padding-right: 5px; /* Add padding on the right */
+}
+
+/* Styles for side menu mode text */
+.side-menu-mode-text {
+  color: var(--text-tertiary); /* Set text color */
+}
+
+/* Styles for accessibility title */
+#accessibility-title {
+  color: var(--background-secondary); /* Set text color */
+  align-content: center; /* Center-align content */
+  font-size: 46px; /* Set font size */
+  margin-top: 20px;
+}
+
+.small-screens-menu-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.small-screens-menu-buttons a {
+  padding-bottom: 10px;
+}

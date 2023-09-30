@@ -1,0 +1,49 @@
+/* Styles for links within news article containers */
+.news-article-container a {
+    color: var(--text-primary); /* Set link color */
+}
+
+/* Styles for the news text container */
+.news-text-container {
+    color: var(--text-primary); /* Set text color */
+    margin-bottom: 10px; /* Add margin at the bottom */
+}
+
+/* Styles for article briefs */
+.article-brief {
+    margin-top: 10px; /* Add margin at the top */
+    line-height: 1.6; /* Set line height */
+    word-spacing: 2px; /* Set word spacing */
+    letter-spacing: 0.8px; /* Set letter spacing */
+}
+
+/* Styles for the first news article within a container */
+.news-article:first-child {
+    padding-top: 0; /* Remove padding at the top */
+}
+
+/* Styles for news articles */
+.news-article {
+    padding-top: 40px; /* Add padding at the top */
+    padding-bottom: 40px; /* Add padding at the bottom */
+}
+
+/* Styles for horizontal lines */
+hr {
+    padding-bottom: 20px; /* Add padding at the bottom */
+}
+
+/* Styles for the latest news section */
+.latest-news {
+    padding-bottom: 35px; /* Add padding at the bottom */
+}
+
+/* Styles for figure captions */
+figcaption {
+    color: var(--text-quaternary); /* Set text color */
+}
+
+/* Styles for aside elements */
+aside {
+    align-items: center; /* Center-align content vertically */
+}

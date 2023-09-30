@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" class="html-element">
+<!--
+    IMAGE AND TEXT ATTRIBUTION:
+    - All the images used for the website are copyright-free, and were gathered from https://unsplash.com/
+    - All the newspaper articles used for the website are entirely fictional, and were created by https://rytr.me/
+-->
+<head>
+    <!-- Required meta tags for character set and viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- External CSS frameworks and libraries -->
+    <!-- 1. Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- 2. jQuery-->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+    <!-- External CSS stylesheets -->
+    <link rel="stylesheet" href="/styles/common.css">
+    <link rel="stylesheet" href="/styles/news.css">
+
+    <!-- External JS modules -->
+    <script type="module" src="/scripts/common.js"> </script>
+
+    <!-- Fonts from Google API-->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans" rel="stylesheet">
+
+    <!-- Page title -->
+    <title>The Verve - News</title>
+</head>
+
+<body>
+
+    <!-- 
+        Header Section: contains the website logo, the navigation links and accessibility options.
+        I choose to divide it in two sections. The first one leaning on the left side: from the logo
+        up to the "Newsletter" page link. And the second on leaning on the right side containing
+        "Report" and the "Accessibility" logo that opens up the accessibility side menu when clicked.
+    -->
+    <header>
+        <!-- Nav Bar for big screens -->
+        <nav class="row justify-content-between d-none d-md-flex">
+            <!-- 
+                The first of the two sections of the navigation for the website: from the logo
+                up to the "Newsletter" page link
+            -->
+            <div id="main-navigation" class="col-md-6">
+                <!-- Website logo -->
+                <a href="/index.html"><img id="website-logo" src="/images/v-logo.png"
+                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+                <!-- Navigation links -->
+                <a href="/index.html">Home</a>
+                <a href="/news.html">News</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/subscribe.html">Subscribe</a>
+                <a href="/newsletter.html">Newsletter</a>
+            </div>
+            <!-- 
+                The second of the two sections of the navigation for the website: the report 
+                and "Accessibility" logo button. 
+            -->
+            <div id="side-navigation" class="col-md-2">
+                <a href="/report.html">Report</a>
+                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
+                <button id="accessibility-button" class="open-menu-button">
+                    <img id="website-accessibility-menu" src="/images/accessibility-icon.png"
+                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
+                </button>
+            </div>
+        </nav>
+
+        <!-- 
+            Accessibility side menu containing options for increasing/decreasing the font size
+            and for regulating the dark/light mode for the whole website
+        -->
+        <section id="side-menu" class="side-navigation-menu">
+            <!-- 
+                The close side menu button that shows up on the top right when the side accessibility
+                menu is open.
+            -->
+            <button class="close-menu-button">&times;</button>
+            <h2 id="accessibility-title">ACCESSIBILITY</h2>
+            <!-- Accessibility options: light/dark mode and font size -->
+            <div class="side-menu-buttons">
+                <!-- The first of the two accessibility options: View Mode -->
+                <h3>View mode:</h3>
+                <div id="view-mode-group" class="btn-group" role="group">
+                    <!-- Light mode button -->
+                    <button id="light-mode" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/light-mode.svg"
+                            alt="Light mode icon: it displays an empty moon in order to indicate light">
+                        <span class="side-menu-mode-text">&nbsp;Light</span>
+                    </button>
+                    <!-- Dark mode button -->
+                    <button id="dark-mode" type="button" class="btn btn-secondary side-menu-button">
+                        <span class="side-menu-mode-text">Dark&nbsp;</span>
+                        <img src="/images/dark-mode.svg"
+                            alt="Dark mode icon: it displays a full moon in order to indicate darkness">
+                    </button>
+                </div>
+                <!-- The second of the two accessibility options: Font Size -->
+                <h3>Font size:</h3>
+                <div id="font-size-group" class="btn-group" role="group">
+                    <!-- Small font size button -->
+                    <button id="font-size-small" type="button" class="btn btn-secondary side-menu-button">
+                        <span class="side-menu-mode-text">-</span>
+                        <img src="/images/font-size.svg"
+                            alt="Small font size icon: it is the letter 'A' with a minus sign preceding it">
+                    </button>
+                    <!-- Normal font size button -->
+                    <button id="font-size-normal" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/font-size.svg" alt="Normal font size icon: it is just the letter 'A'">
+                    </button>
+                    <!-- Big font size button -->
+                    <button id="font-size-big" type="button" class="btn btn-secondary side-menu-button">
+                        <img src="/images/font-size.svg"
+                            alt="Big font size icon: it is the letter 'A' with a plus sign afterwards">
+                        <span class="side-menu-mode-text">+</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nav Bar for small screens -->
+        <nav class="row justify-content-between d-md-none d-flex">
+            <div class="col-2">
+                <a href="/index.html"><img id="website-logo-small-screen" src="/images/v-logo.png"
+                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+            </div>
+
+            <div class="col-7">
+                <a href="/report.html">Report</a>
+                <button id="menu-button" class="open-small-screens-menu-button">
+                    <img id="website-small-menu" src="/images/bars-menu.svg" alt="">
+                </button>
+                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
+                <button id="accessibility-button-small-screen" class="open-menu-button">
+                    <img id="website-accessibility-menu-small-screen" src="/images/accessibility-icon.png"
+                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
+                </button>
+            </div>
+        </nav>
+
+        <!-- Small screens side menu containing navigation options -->
+        <section id="small-screens-menu" class="side-navigation-menu">
+            <!--  The close side menu button that shows up on the top right when the menu is open. -->
+            <button class="close-menu-button">&times;</button>
+            <h2 id="navigation-title">NAVIGATION</h2>
+            <!-- Navigation options -->
+            <div class="small-screens-menu-buttons">
+                <a href="/index.html">Home</a>
+                <a href="/news.html">News</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/subscribe.html">Subscribe</a>
+                <a href="/newsletter.html">Newsletter</a>
+            </div>
+        </section>
+
+    </header>
+
+    <!--
+        The whole "news" page is divided into two section: one on the left side
+        with the list of articles, and one on the right side with the "latest" news.
+    -->
+    <main>
+        <section class="container-section">
+            <h1>NEWS</h1>
+            <div class="main-section row justify-content-between">
+                <!--
+                    The first of the two sections of the "news" page. It contains the list
+                    of all news articles available on the website. Those news are reachable 
+                    by clicking the relative links in the main or categories page.
+                -->
+                <div class="col-md-8 order-md-first">
+                    <div id="news0" class="news-article-container">
+                        <!-- First article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>Legendary Band Velvet Vortex Announces Farewell Tour: A Fond Farewell to Rock 'n'
+                                    Roll Icons</h2>
+                                <time class="date-and-time" datetime="2023-09-14">September 14, 2023</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news0.jpg"
+                                    alt="The Band Velvet Vortex performing during one of their latest tours. It is a black and white image capturing the crowd cheering and the band playing">
+                                <figcaption>
+                                    Velvet Vortex electrifying the stage with their iconic sound during a legendary live
+                                    performance at 'Apollo Theater'.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                The announcement came like a thunderclap in the hearts of fans across the globe. Velvet
+                                Vortex, known for their electrifying performances and a discography that reads like a
+                                rock 'n' roll hall of fame, has decided to close this remarkable chapter of their career
+                                on their own terms. In an era where the music industry constantly evolves, Velvet Vortex
+                                remains a towering symbol of artistic integrity and musical brilliance.
+                            </p>
+                            <h5 class="intersection-title">A Farewell Tour for the Ages</h5>
+                            <p class="article-brief">
+                                Dubbed "The Final Resonance Tour," Velvet Vortex's farewell journey is set to be a grand
+                                spectacle that not only commemorates their illustrious career but also serves as a
+                                heartfelt thank-you to the devoted fans who've supported them through thick and thin.
+                                It's an emotional voyage through time, a last chance to immerse in the sonic embrace of
+                                their iconic catalog, and an opportunity to witness rock 'n' roll history in the making.
+                            </p>
+                            <p class="article-brief">
+                                For the band, this farewell tour is not merely a final curtain call but a chance to
+                                connect with fans one last time, sharing the raw energy, passion, and unforgettable
+                                melodies that have defined their legacy. Each performance on this tour is poised to be a
+                                once-in-a-lifetime experience, a testament to the enduring power of their music.
+                            </p>
+                            <h5 class="intersection-title">A Farewell Tour for the Ages</h5>
+                            <p class="article-brief">
+                                Velvet Vortex's influence transcends their music. They've inspired generations of
+                                musicians and carved a path for countless rock bands to follow. Their commitment to
+                                authenticity, artistic evolution, and pushing the boundaries of their sound has set a
+                                standard that few can match. Their farewell tour is not just a farewell to fans but a
+                                farewell to an era of rock 'n' roll that they helped shape.
+                            </p>
+                            <p class="article-brief">
+                                In an era where trends in music come and go, Velvet Vortex's decision to bow out
+                                gracefully, on their own terms, reflects their unwavering dedication to their craft and
+                                their refusal to compromise their artistic integrity. The "Final Resonance Tour" is a
+                                poignant reminder that some legacies are eternal, etched in the hearts and souls of fans
+                                who've been touched by the magic of their music.
+                            </p>
+                            <p class="article-brief">
+                                As the curtain rises on "The Final Resonance Tour," fans around the world are preparing
+                                to embark on a bittersweet journey, one that promises to be a rollercoaster of emotions,
+                                nostalgia, and unparalleled musical brilliance. Velvet Vortex may bid farewell to the
+                                stage, but their music, their legacy, and the indelible mark they've left on the world
+                                of rock 'n' roll will continue to echo through the ages.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news1" class="news-article-container">
+                        <!-- Second article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>ThunderStrike Unleashes Musical Thunderstorm with Surprise Album </h2>
+                                <time class="date-and-time" datetime="2023-08-08">August 8, 2023</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news1.jpg"
+                                    alt="ThunderStrike band performing live for the tour of their latest album 'Ride the Lightning'">
+                                <figcaption>
+                                    ThunderStrike electrifying the stage with a live performance of their latest album
+                                    'Ride the Lightning,' captivating audiences with their signature sound and
+                                    unstoppable energy.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                In the world of music, surprises have a unique way of igniting excitement and curiosity
+                                among fans. ThunderStrike, the beloved and ever-innovative rock band, recently sent
+                                shockwaves through the music scene by dropping an unexpected album that has fans and
+                                critics alike buzzing with anticipation. In this comprehensive review, we dive deep into
+                                the surprise album, dissecting each track's significance and sound to unravel the magic
+                                ThunderStrike has conjured.
+                            </p>
+                            <h5 class="intersection-title">An Unexpected Sonic Revelation </h5>
+                            <p class="article-brief">
+                                The surprise album, aptly titled "Ride the Lightning," took fans by storm as it appeared
+                                unannounced on streaming platforms and in record stores. Known for their genre-defying
+                                sound and relentless creativity, ThunderStrike has once again defied expectations with
+                                this audacious move.
+                            </p>
+                            <p class="article-brief">
+                                From the very first track, "Electric Dreams," it's evident that ThunderStrike hasn't
+                                lost their touch. The song's electrifying guitar riffs, thunderous drum beats, and the
+                                signature powerhouse vocals of lead singer, Laura Evans, blend seamlessly to create a
+                                captivating introduction to the album. The lyrics, a poetic exploration of dreams and
+                                desire, draw listeners into a world where the lines between reality and imagination
+                                blur.
+                            </p>
+                            <h5 class="intersection-title">A Musical Odyssey </h5>
+                            <p class="article-brief">
+                                "Ride the Lightning" takes listeners on a musical odyssey, showcasing ThunderStrike's
+                                ability to effortlessly traverse various sonic landscapes. Tracks like "Storm Chaser"
+                                bring a bluesy swagger to the album, with Laura's vocals weaving a tale of chasing
+                                life's tempestuous moments. Meanwhile, "Midnight Serenade" slows the tempo, inviting
+                                listeners to lose themselves in a hauntingly beautiful ballad that showcases the band's
+                                versatility.
+                            </p>
+                            <p class="article-brief">
+                                One of the standout tracks, "Amped Up," is an adrenaline-fueled anthem that could easily
+                                become a rock concert staple. The pulsating rhythm and blazing guitar solos make it an
+                                instant favorite for those craving a sonic adrenaline rush.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news2" class="news-article-container">
+                        <!-- Third article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>An In-Depth Conversation with Indie Rock's Rising Star </h2>
+                                <time class="date-and-time" datetime="2023-07-02">July 2, 2023</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news2.jpg"
+                                    alt="The emerging indie rock sensation, captured while holding their instruments in plain air">
+                                <figcaption>
+                                    The emerging indie rock sensation, captured in a moment of musical synergy with
+                                    their instruments, embodying the soulful spirit of their genre.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                Indie rock has always been a realm ripe with innovation and the emergence of new,
+                                exciting talents. In this exclusive interview, we sit down with an emerging indie rock
+                                artist whose star is on the rise. Our conversation delves deep into their artistic
+                                journey, influences, and what makes their music resonate with fans in a genre known for
+                                its unique and unconventional sounds.
+                            </p>
+                            <h5 class="intersection-title">Unveiling the Artist's Journey </h5>
+                            <p class="article-brief">
+                                Every musician's journey is a story in itself, a narrative of growth, challenges, and
+                                discovery. Our interviewee, whose name is already making waves across indie rock
+                                circles, shares the roots of their artistic odyssey.
+                            </p>
+                            <p class="article-brief">
+                                "I started playing music when I was just a kid," they explain with a hint of nostalgia
+                                in their voice. "It was that old guitar in the attic that belonged to my dad. I strummed
+                                it like it was some forgotten treasure, and in a way, it was."
+                            </p>
+                            <p class="article-brief">
+                                Their early encounters with music were filled with experimentation, the raw passion of
+                                youth fueling late-night jam sessions and scribbled lyrics. It's a path that many
+                                budding musicians can relate to, the initial spark of creativity that sets the course
+                                for a lifetime of sonic exploration.
+                            </p>
+                            <h5 class="intersection-title">The Sonic Tapestry of Influences </h5>
+                            <p class="article-brief">
+                                One of the most captivating aspects of indie rock lies in its eclecticism, and this
+                                emerging artist is no stranger to embracing a wide array of influences. As they divulge
+                                the inspirations that shape their sound, it becomes evident that their music is a
+                                tapestry woven from various genres and eras.
+                            </p>
+                            <p class="article-brief">
+                                "Indie rock is this beautiful canvas where you can paint with different sounds," they
+                                explain. "I grew up listening to classic rock legends like Led Zeppelin and The Rolling
+                                Stones, and that bluesy, soulful vibe has always been a part of me. But then there's the
+                                raw energy of punk, the introspection of folk, and the dreamy atmospheres of shoegaze
+                                that I find fascinating."
+                            </p>
+                            <p class="article-brief">
+                                It's this amalgamation of influences that makes their music a captivating journey. Each
+                                song feels like a sonic adventure, a voyage through the artist's own musical universe.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news3" class="news-article-container">
+                        <!-- Fourth article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>The Resurgence of Vinyl Records in Contemporary Music</h2>
+                                <time class="date-and-time" datetime="2023-05-05">May 5, 2023</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news3.jpg"
+                                    alt="A close up of two hands that carefully flip through a collection of vintage vinyl records">
+                                <figcaption>
+                                    Exploring the Timeless Melodies - Carefully flipping through a
+                                    collection of vintage vinyl records, each one a gateway to a world of sonic
+                                    nostalgia and musical discovery.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                Vinyl records, those iconic black discs that were once the heart and soul of the music
+                                industry, are experiencing a remarkable comeback in the modern music scene. This
+                                revival, driven by a combination of nostalgia, a craving for tangibility, and a genuine
+                                appreciation for the audio quality of vinyl, has breathed new life into an industry that
+                                was once thought to be on its deathbed. Vinyl records, with their unmistakable warm,
+                                analog sound, are making a significant impact on contemporary music. To understand this
+                                resurgence, we need to delve into the reasons behind the vinyl comeback and the role
+                                these records play in today's musical landscape.
+                            </p>
+                            <h5 class="intersection-title">A Nostalgic Resurgence </h5>
+                            <p class="article-brief">
+                                One of the primary drivers of the vinyl revival is nostalgia. Many music enthusiasts,
+                                both young and old, have a deep affection for vinyl records. They fondly recall the
+                                tactile experience of handling these oversized discs, the thrill of meticulously
+                                dropping the needle onto the groove, and the tangible connection they provide to their
+                                favorite artists. This nostalgia factor has enticed a new generation of music lovers to
+                                explore vinyl, often inheriting turntables and record collections from their parents or
+                                grandparents.
+                            </p>
+                            <p class="article-brief">
+                                In an era where digital music is often consumed on smartphones and computers, the vinyl
+                                record offers a refreshing tactile engagement. Listeners interact with the physical
+                                medium, flipping the record, reading liner notes, and admiring album artwork in all its
+                                oversized glory. It's an experience that encourages a deeper connection with the music,
+                                allowing listeners to savor the artistic intent behind each album.
+                            </p>
+                            <h5 class="intersection-title">The Audiophile's Dream </h5>
+                            <p class="article-brief">
+                                Vinyl's sonic qualities are a key draw for audiophiles. The analog format provides a
+                                rich and nuanced sound that digital formats often struggle to replicate. The warm,
+                                organic tones produced by vinyl are particularly appealing to those who crave an
+                                authentic and immersive listening experience. The unmistakable crackle and pop of a
+                                vinyl record have even become cherished characteristics, evoking a sense of authenticity
+                                that digital perfection often lacks.
+                            </p>
+                            <p class="article-brief">
+                                Vinyl records have also found favor among collectors and enthusiasts. The vinyl
+                                resurgence has led to a resurgence in the production of limited-edition and
+                                special-colored vinyl, as well as reissues of classic albums. Collectors eagerly seek
+                                out these rare and unique editions, driving up demand and creating a thriving market for
+                                vintage and new vinyl alike.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news4" class="news-article-container">
+                        <!-- Fifth article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>Making of the Hit Music Video "Lovestruck Baby": The Secrets Behind the Scenes </h2>
+                                <time class="date-and-time" datetime="2023-04-21">April 21, 2023</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news4.jpg"
+                                    alt="A behind-the-scene look at the making of the hit music video 'Lovestruck Baby'">
+                                <figcaption>
+                                    Behind the Scenes Magic - Capturing the creative energy and dedication of the
+                                    artists and crew during the making of the hit music video 'Lovestruck Baby.' Every
+                                    moment, every detail, and every emotion captured on and off camera.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                When it comes to the magic of music videos, "Lovestruck Baby" is undoubtedly a
+                                mesmerizing work of art that has captured the hearts of millions. In this exclusive
+                                behind-the-scenes look, we invite you to step into the world of creativity, passion, and
+                                sheer dedication that brought this captivating music video to life. Join us as we delve
+                                into the production process, the artistic vision, and the insights of the talented
+                                individuals who made "Lovestruck Baby" a hit sensation.
+                            </p>
+                            <h5 class="intersection-title">The Vision Unveiled </h5>
+                            <p class="article-brief">
+                                Every great music video starts with a vision, and "Lovestruck Baby" was no exception.
+                                From the very beginning, the creators aimed to transport viewers into a realm where
+                                music and storytelling intertwine seamlessly. The video's director envisioned a
+                                narrative that would not only complement the song's lyrics but also elevate them,
+                                creating an immersive experience that resonates with the audience on a deep emotional
+                                level.
+                            </p>
+                            <p class="article-brief">
+                                The success of "Lovestruck Baby" can be attributed to the close collaboration between
+                                the artists and the production team. The video features talented musicians, dancers, and
+                                actors who worked tirelessly to bring the story to life. Each frame was carefully
+                                crafted, every dance move choreographed with precision, and every emotion conveyed with
+                                authenticity.
+                            </p>
+                            <h5 class="intersection-title">The Captivating Cinematography </h5>
+                            <p class="article-brief">
+                                One of the standout features of "Lovestruck Baby" is its stunning cinematography. The
+                                video takes viewers on a visual journey, with breathtaking shots that capture the
+                                essence of the song's romantic narrative. The use of lighting, color, and camera angles
+                                adds depth and dimension to the storytelling, making every scene a work of art in
+                                itself.
+                            </p>
+                            <p class="article-brief">
+                                In "Lovestruck Baby," the music itself plays a vital role as a character in the story.
+                                The artists understood the importance of synchronization between the audio and visual
+                                elements. The music video not only complements the song but enhances its emotional
+                                impact, creating a harmonious synergy between sound and image.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news5" class="news-article-container">
+                        <!-- Sixth article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>The Evolution of Rap: A Journey Through Lyrics and Beats </h2>
+                                <time class="date-and-time" datetime="2023-03-12">March 12, 2023</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news5.jpg"
+                                    alt="The rapper J. Cole caught during one of his live performances">
+                                <figcaption>
+                                    J. Cole, the lyrical genius, captivating the audience with his electrifying
+                                    performance, where every rhyme and rhythm comes to life on stage.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                Rap music, born from the vibrant streets of the Bronx in the 1970s, has undergone a
+                                remarkable evolution over the past decade. This genre, often celebrated for its lyrical
+                                prowess and rhythmic beats, has not only maintained its cultural relevance but has also
+                                ventured into new territories, pushing artistic boundaries and challenging societal
+                                norms. In this retrospective analysis, we embark on a journey through the past decade of
+                                rap, exploring the changing landscape of the genre, key artists who have shaped its
+                                trajectory, and the emerging trends that continue to redefine it.
+                            </p>
+                            <h5 class="intersection-title">The Decade of Diversity </h5>
+                            <p class="article-brief">
+                                The past decade has witnessed an explosion of diversity within the rap genre. Artists
+                                from various backgrounds, ethnicities, and genders have entered the scene, bringing
+                                their unique perspectives and stories to the forefront. This inclusivity has enriched
+                                rap's lyrical content and broadened its appeal, making it a platform for voices that
+                                were previously marginalized.
+                            </p>
+                            <p class="article-brief">
+                                While rap has always been celebrated for its lyricism, the past decade has seen a
+                                resurgence of intricate wordplay, storytelling, and social commentary. Artists like
+                                Kendrick Lamar, J. Cole, and Rapsody have emerged as lyrical luminaries, using their
+                                verses to tackle complex subjects, from racial inequality to mental health. The art of
+                                storytelling within rap has not only entertained but also educated and inspired
+                                listeners around the world.
+                            </p>
+                            <h5 class="intersection-title">The Blurring of Genre Boundaries </h5>
+                            <p class="article-brief">
+                                Rap has never been confined by strict genre boundaries, but in recent years, it has
+                                ventured further into uncharted sonic territories. The fusion of rap with elements of
+                                rock, electronic music, and even country has given birth to a diverse range of
+                                subgenres, from trap to mumble rap. This experimentation has broadened the genre's
+                                horizons and attracted a more eclectic audience.
+                            </p>
+                            <p class="article-brief">
+                                Rap has always been a platform for artists to address pressing societal issues, and the
+                                past decade has been no exception. Artists such as Killer Mike, Run the Jewels, and YG
+                                have used their music to speak out against police brutality, systemic racism, and
+                                political corruption. Rap has become a powerful tool for social and political
+                                commentary, sparking conversations and demanding change.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news6" class="news-article-container">
+                        <!-- Seventh article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>New Wave of Electronic Dance Music: Shaping the Sound </h2>
+                                <time class="date-and-time" datetime="2023-01-29">January 29, 2023</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news6.jpg"
+                                    alt="A disk jockey (only one hand visible) DJing in a live performance">
+                                <figcaption>
+                                    Electronic dance music artists embracing innovation and pushing sonic boundaries in
+                                    the New Wave of EDM.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                Electronic Dance Music (EDM) has always been a genre known for its boundless innovation,
+                                and in recent years, a fresh wave of talent has emerged to push its sonic boundaries to
+                                new heights. In this exploration of the evolving EDM landscape, we shine a spotlight on
+                                the rising artists who are not only shaping the sound but also redefining the very
+                                essence of what EDM can be.
+                            </p>
+                            <h5 class="intersection-title">Experimental Production Techniques </h5>
+                            <p class="article-brief">
+                                The production techniques employed by these emerging artists are nothing short of
+                                groundbreaking. Sound design has become an art form in itself, with producers like Flume
+                                delving deep into experimental soundscapes that challenge conventional norms. The use of
+                                modular synthesis, granular synthesis, and custom-made instruments has opened up new
+                                possibilities for sonic exploration.
+                            </p>
+                            <p class="article-brief">
+                                The boundaries between EDM subgenres have become increasingly fluid, with artists freely
+                                traversing between them. Dubstep elements can seamlessly merge with future bass, and
+                                trap beats can coexist with trance melodies. This genre-blurring approach has resulted
+                                in tracks that defy categorization, pushing the envelope of what EDM can sound like.
+                            </p>
+                            <h5 class="intersection-title">Digital Platforms and Global Reach </h5>
+                            <p class="article-brief">
+                                The digital age has empowered these artists to share their music with a global audience.
+                                Platforms like SoundCloud, YouTube, and Spotify have democratized the music industry,
+                                allowing independent artists to gain recognition and build fanbases without the need for
+                                major record labels. This newfound accessibility has encouraged experimentation and
+                                fostered a culture of musical innovation.
+                            </p>
+                            <p class="article-brief">
+                                The live performances of these artists have evolved into spectacles that transcend the
+                                traditional DJ set. Elaborate stage designs, immersive visuals, and synchronized light
+                                shows have transformed EDM concerts into multisensory experiences. Artists like Porter
+                                Robinson and ODESZA have elevated their live performances to a level of artistry that
+                                immerses audiences in a world of sound and visuals.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news7" class="news-article-container">
+                        <!-- Eight article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>The Legendary Band Midnight Rebellion Reunites Against All Odds </h2>
+                                <time class="date-and-time" datetime="2022-12-18">December 18, 2022</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news7.jpg"
+                                    alt="The members of the band Midnight Rebellion sharing a triumphant moment on stage">
+                                <figcaption>
+                                    The members of Midnight Rebellion, the legendary band, share a triumphant moment on
+                                    stage as they reunite against all odds, igniting a euphoric wave of nostalgia and
+                                    music magic.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                It's a moment that fans of rock and roll have been waiting for with bated breath:
+                                Midnight Rebellion, the iconic band that once ruled the airwaves, is making a triumphant
+                                return. After years of speculation, anticipation, and fervent fan wishes, the classic
+                                trio is reuniting, promising to deliver a musical experience that will ignite nostalgia
+                                while introducing their timeless sound to a new generation of listeners. In this
+                                in-depth look at the reunion of Midnight Rebellion, we delve into the history of the
+                                band, their reasons for reuniting, and what fans can expect from their upcoming tour.
+                            </p>
+                            <h5 class="intersection-title">A Journey Through Rock History </h5>
+                            <p class="article-brief">
+                                To understand the significance of Midnight Rebellion's reunion, one must first journey
+                                back through the annals of rock history. Formed in the late 1970s, the band quickly
+                                ascended to legendary status with their distinctive blend of bluesy rock, electrifying
+                                stage presence, and poetic lyrics that resonated with a generation. Hits like "Rebel
+                                Heart" and "Midnight Serenade" became anthems for the youth of that era, capturing the
+                                spirit of rebellion and love in a time of social change.
+                            </p>
+                            <p class="article-brief">
+                                The heart of Midnight Rebellion, its classic trio of lead vocalist and guitarist Alex
+                                Turner, bassist Sarah Anderson, and drummer Max Harrison, had parted ways in the early
+                                '90s to explore solo projects and other musical ventures. Fans had long held out hope
+                                for a reunion, and their wishes have now been granted. The band's decision to reunite
+                                stems from a deep desire to celebrate their music and share it with both devoted fans
+                                and a new generation hungry for authentic rock experiences.
+                            </p>
+                            <h5 class="intersection-title">The Upcoming Tour: A Rock Odyssey </h5>
+                            <p class="article-brief">
+                                Midnight Rebellion's reunion isn't just about nostalgia; it's about a fresh start and
+                                the promise of new musical journeys. Their upcoming tour, aptly named "Rock Odyssey," is
+                                set to be a grand spectacle that will transport audiences through the band's rich
+                                catalog of hits and deeper cuts. With a career spanning four decades, there's no
+                                shortage of material to draw from, and fans can expect a meticulously curated setlist
+                                that captures the essence of Midnight Rebellion's enduring appeal.
+                            </p>
+                            <p class="article-brief">
+                                As Midnight Rebellion prepares to hit the road and grace stages around the world once
+                                more, it's clear that their music's timeless quality has endured. Their songs, filled
+                                with raw emotion and unforgettable melodies, continue to inspire and resonate with music
+                                lovers of all ages. The reunion of this legendary band is not just a celebration of the
+                                past; it's a testament to the enduring power of rock and roll to connect, captivate, and
+                                inspire.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news8" class="news-article-container">
+                        <!-- Nineth article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>The Success Story of the Indie Sensation Riot Resonance: Rising from the Ashes </h2>
+                                <time class="date-and-time" datetime="2022-10-06">October 6, 2022</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news8.jpg"
+                                    alt="The band Riot Resonance perfoming live in one of their recent concerts">
+                                <figcaption>
+                                    Riot Resonance: Rising from the Ashes - A band's journey from humble beginnings to
+                                    indie sensation, a testament to their unwavering passion and musical resilience.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                In the ever-evolving landscape of the music industry, one band has emerged from humble
+                                beginnings to become an indie sensation that has captured the hearts of fans and critics
+                                alike. Riot Resonance, a group of talented musicians with a unique sound and an
+                                unwavering dedication to their craft, has not only achieved critical acclaim but has
+                                also earned Grammy recognition. In this in-depth look at their journey, we trace the
+                                band's path from their modest origins to the pinnacle of musical success.
+                            </p>
+                            <h5 class="intersection-title">Humble Beginnings and Musical Chemistry </h5>
+                            <p class="article-brief">
+                                Riot Resonance's story begins in a small garage, where a group of friends with a shared
+                                passion for music decided to jam together. It was in this unassuming setting that the
+                                band's musical chemistry was born. Their early days were marked by experimentation, a
+                                raw energy that resonated with their indie spirit, and a hunger to create something
+                                truly unique.
+                            </p>
+                            <p class="article-brief">
+                                What sets Riot Resonance apart from the crowd is their willingness to defy genre
+                                boundaries. They refused to be pigeonholed into one style and instead embarked on a
+                                sonic journey that drew inspiration from rock, folk, electronica, and even classical
+                                music. This genre-blurring approach, coupled with their introspective and poetic lyrics,
+                                allowed them to craft a distinctive and captivating sound.
+                            </p>
+                            <h5 class="intersection-title">The DIY Ethos </h5>
+                            <p class="article-brief">
+                                In the early years, Riot Resonance operated with a strict DIY ethos. They recorded their
+                                own music, designed their album artwork, and booked their shows. This independence not
+                                only allowed them creative control but also forged a deep connection with their growing
+                                fanbase. Their grassroots approach to building a following through local gigs and
+                                word-of-mouth promotion laid the foundation for their future success.
+                            </p>
+                            <p class="article-brief">
+                                Riot Resonance's breakthrough came with their sophomore album, "Echoes of Rebellion."
+                                Released independently, the album struck a chord with both fans and music critics. Its
+                                emotionally charged lyrics, coupled with the band's masterful musicianship, garnered
+                                rave reviews and opened doors to larger venues and festivals. Songs like "Rebel's
+                                Lullaby" and "Resonance Dreams" became anthems of a generation grappling with social and
+                                personal issues.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+
+                    <div id="news9" class="news-article-container">
+                        <!-- Tenth article from the section -->
+                        <article class="news-article">
+                            <!-- News text container: containing the text part of each article, which includes date and title. -->
+                            <div class="news-text-container">
+                                <h2>Iconic Drummer Joe Emmet Joins Supergroup: Legends Never Die </h2>
+                                <time class="date-and-time" datetime="2022-08-25">August 25, 2022</time>
+                            </div>
+                            <!-- News image container: containing the image and the caption text of each article -->
+                            <figure class="news-image-container">
+                                <img src="/images/news9.jpg"
+                                    alt="The drummer Joe Emmet caught while perfoming live. The image shows him playing from behind the drumset.">
+                                <figcaption>
+                                    Iconic drummer Joe Emmet joins the supergroup, creating a musical union that
+                                    promises to redefine the industry.
+                                </figcaption>
+                            </figure>
+                            <!-- The actual article divided in paragraphs and subtitles -->
+                            <p class="article-brief">
+                                The music world is abuzz with excitement as iconic drummer Joe Emmet, known for his
+                                electrifying beats and undeniable talent, makes a monumental move by joining a new
+                                supergroup. This unexpected development has sent shockwaves through the industry and
+                                left fans eagerly anticipating the sonic magic that this fusion of talent is bound to
+                                produce. In this in-depth exploration, we delve into the impact of Joe Emmet's decision
+                                to join the supergroup and offer insights into the potential direction this musical
+                                powerhouse may take.
+                            </p>
+                            <h5 class="intersection-title">The Drumming Maestro: Joe Emmet </h5>
+                            <p class="article-brief">
+                                Before we dissect the implications of Joe Emmet's latest move, it's essential to
+                                appreciate the stature of this drumming maestro. With a career spanning several decades,
+                                Emmet has solidified his place as one of the most influential and respected drummers in
+                                the industry. Known for his impeccable timing, versatility, and ability to infuse soul
+                                into every beat, he has been the rhythmic backbone of several iconic bands, leaving an
+                                indelible mark on the music landscape.
+                            </p>
+                            <p class="article-brief">
+                                The concept of a supergroup is often met with excitement and curiosity, as it involves
+                                the convergence of exceptional talents from various musical backgrounds. Joe Emmet's
+                                decision to join such an ensemble suggests that something extraordinary is in the
+                                making. While the details surrounding the band's formation and its other members remain
+                                shrouded in secrecy, one thing is certain: this collaboration has the potential to
+                                reshape the musical landscape.
+                            </p>
+                            <h5 class="intersection-title">The Impact on the Music Industry </h5>
+                            <p class="article-brief">
+                                Joe Emmet's presence in the supergroup has not gone unnoticed by music enthusiasts and
+                                industry insiders. The anticipation surrounding this collaboration has reignited
+                                interest in the art of drumming and underscores the significance of rhythm in music. It
+                                also highlights the continued relevance of supergroups as a creative force capable of
+                                pushing boundaries and redefining genres.
+                            </p>
+                            <p class="article-brief">
+                                While specifics about the supergroup's musical direction are scarce, there are several
+                                tantalizing possibilities to consider. Joe Emmet's drumming style, which seamlessly
+                                spans genres from rock to jazz to funk, suggests that the band may explore a diverse
+                                sonic landscape. This versatility, combined with the potential input of other legendary
+                                musicians, opens the door to groundbreaking compositions that transcend traditional
+                                boundaries.
+                            </p>
+                        </article>
+                        <hr class="solid">
+                    </div>
+                </div>
+
+                <!-- 
+                    The second of the two sections of the "news" page. It contains the list
+                    of "Latest" news. Each of which only has a date and time and a small title.
+                    NOTE: THOSE ARE ONLY MEANT FOR DECORATIVE PURPOSES AND DO NOT CONTAIN ANY LINK.
+                -->
+                <aside class="col-md-3 order-first">
+                    <hr class="solid">
+                    <h2 class="subsection-title latest-news">LATEST</h2>
+                    <div class="news-article-container">
+                        <!-- 
+                            First article from the section 
+                            NOTE: ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK
+                        -->
+                        <article class="news-article">
+                            <div class="row">
+                                <time class="date-and-time" datetime="2023-09-13">September 13, 2023</time>
+                            </div>
+                            <div class="row">
+                                <h4>Exclusive Interview with Rising Star "Melody Maven"</h4>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- 
+                            Second article from the section 
+                            NOTE: ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK
+                        -->
+                        <article class="news-article">
+                            <div class="row">
+                                <time class="date-and-time" datetime="2023-09-10">September 10, 2023</time>
+                            </div>
+                            <div class="row">
+                                <h4>Breaking News: Legendary Band "Soundwave Revival" Announces Reunion Tour</h4>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- 
+                            Third article from the section 
+                            NOTE: ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK
+                        -->
+                        <article class="news-article">
+                            <div class="row">
+                                <time class="date-and-time" datetime="2023-09-02">September 2, 2023</time>
+                            </div>
+                            <div class="row">
+                                <h4>Music Awards Gala 2023: A Night of Unforgettable Performances and Surprises</h4>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- 
+                            Fourth article from the section 
+                            NOTE: ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK
+                        -->
+                        <article class="news-article">
+                            <div class="row">
+                                <time class="date-and-time" datetime="2023-08-11">August 11, 2023</time>
+                            </div>
+                            <div class="row">
+                                <h4>Chart-Topping Sensation "Harmonix" Drops Highly Anticipated New Single</h4>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- 
+                            Fifth article from the section 
+                            NOTE: ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK
+                        -->
+                        <article class="news-article">
+                            <div class="row">
+                                <time class="date-and-time" datetime="2023-07-04">July 4, 2023</time>
+                            </div>
+                            <div class="row">
+                                <h4>Behind the Scenes: The Making of the Hit Music Video "Starry Serenade"</h4>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="news-article-container">
+                        <!-- 
+                            Sixth article from the section 
+                            NOTE: ONLY MEANT FOR DECORATIVE PURPOSES AND DOES NOT CONTAIN ANY LINK
+                        -->
+                        <article class="news-article">
+                            <div class="row">
+                                <time class="date-and-time" datetime="2023-06-18">June 18, 2023</time>
+                            </div>
+                            <div class="row">
+                                <h4>Music Industry Trends 2023: What to Expect in the Ever-Evolving Landscape</h4>
+                            </div>
+                        </article>
+                    </div>
+                    <hr class="solid">
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer section which is only decorative -->
+    <footer>
+        <p id="footer-text">&copy; 2023 The Verve. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
