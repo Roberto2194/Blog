@@ -76,3 +76,7 @@ def register(request):
         return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "blog/register.html")
+    
+
+def profile(request):
+    return render(request, "blog/profile.html")
