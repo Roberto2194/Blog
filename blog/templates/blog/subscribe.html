@@ -1,167 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="html-element">
-<!--
-    IMAGE AND TEXT ATTRIBUTION:
-    - All the images used for the website are copyright-free, and were gathered from https://unsplash.com/
-    - All the newspaper articles used for the website are entirely fictional, and were created by https://rytr.me/
--->
-<head>
-    <!-- Required meta tags for character set and viewport -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "blog/layout.html" %}
+{% load static %}
 
-    <!-- External CSS frameworks and libraries -->
-    <!-- 1. Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+{% block style %}
+    <link href="{% static 'blog/styles/subscribe.css' %}" rel="stylesheet">
+{% endblock %}
 
-    <!-- 2. jQuery-->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-
-    <!-- External CSS stylesheets -->
-    <link rel="stylesheet" href="/styles/common.css">
-    <link rel="stylesheet" href="/styles/subscribe.css">
-
-    <!-- External JS modules -->
-    <script type="module" src="/scripts/common.js"> </script>
-
-    <!-- Fonts from Google API-->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans" rel="stylesheet">
-
-    <!-- Page title -->
-    <title>The Verve - Subscribe</title>
-</head>
-
-<body>
-
-    <!-- 
-        Header Section: contains the website logo, the navigation links and accessibility options.
-        I choose to divide it in two sections. The first one leaning on the left side: from the logo
-        up to the "Newsletter" page link. And the second on leaning on the right side containing
-        "Report" and the "Accessibility" logo that opens up the accessibility side menu when clicked.
-    -->
-    <header>
-        <!-- Nav Bar for big screens -->
-        <nav class="row justify-content-between d-none d-md-flex">
-            <!-- 
-                The first of the two sections of the navigation for the website: from the logo
-                up to the "Newsletter" page link
-            -->
-            <div id="main-navigation" class="col-md-6">
-                <!-- Website logo -->
-                <a href="/index.html"><img id="website-logo" src="/images/v-logo.png"
-                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
-                <!-- Navigation links -->
-                <a href="/index.html">Home</a>
-                <a href="/news.html">News</a>
-                <a href="/categories.html">Categories</a>
-                <a href="/subscribe.html">Subscribe</a>
-                <a href="/newsletter.html">Newsletter</a>
-            </div>
-            <!-- 
-                The second of the two sections of the navigation for the website: the report 
-                and "Accessibility" logo button. 
-            -->
-            <div id="side-navigation" class="col-md-2">
-                <a href="/report.html">Report</a>
-                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
-                <button id="accessibility-button" class="open-menu-button">
-                    <img id="website-accessibility-menu" src="/images/accessibility-icon.png"
-                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
-                </button>
-            </div>
-        </nav>
-
-        <!-- 
-            Accessibility side menu containing options for increasing/decreasing the font size
-            and for regulating the dark/light mode for the whole website
-        -->
-        <section id="side-menu" class="side-navigation-menu">
-            <!-- 
-                The close side menu button that shows up on the top right when the side accessibility
-                menu is open.
-            -->
-            <button class="close-menu-button">&times;</button>
-            <h2 id="accessibility-title">ACCESSIBILITY</h2>
-            <!-- Accessibility options: light/dark mode and font size -->
-            <div class="side-menu-buttons">
-                <!-- The first of the two accessibility options: View Mode -->
-                <h3>View mode:</h3>
-                <div id="view-mode-group" class="btn-group" role="group">
-                    <!-- Light mode button -->
-                    <button id="light-mode" type="button" class="btn btn-secondary side-menu-button">
-                        <img src="/images/light-mode.svg"
-                            alt="Light mode icon: it displays an empty moon in order to indicate light">
-                        <span class="side-menu-mode-text">&nbsp;Light</span>
-                    </button>
-                    <!-- Dark mode button -->
-                    <button id="dark-mode" type="button" class="btn btn-secondary side-menu-button">
-                        <span class="side-menu-mode-text">Dark&nbsp;</span>
-                        <img src="/images/dark-mode.svg"
-                            alt="Dark mode icon: it displays a full moon in order to indicate darkness">
-                    </button>
-                </div>
-                <!-- The second of the two accessibility options: Font Size -->
-                <h3>Font size:</h3>
-                <div id="font-size-group" class="btn-group" role="group">
-                    <!-- Small font size button -->
-                    <button id="font-size-small" type="button" class="btn btn-secondary side-menu-button">
-                        <span class="side-menu-mode-text">-</span>
-                        <img src="/images/font-size.svg"
-                            alt="Small font size icon: it is the letter 'A' with a minus sign preceding it">
-                    </button>
-                    <!-- Normal font size button -->
-                    <button id="font-size-normal" type="button" class="btn btn-secondary side-menu-button">
-                        <img src="/images/font-size.svg" alt="Normal font size icon: it is just the letter 'A'">
-                    </button>
-                    <!-- Big font size button -->
-                    <button id="font-size-big" type="button" class="btn btn-secondary side-menu-button">
-                        <img src="/images/font-size.svg"
-                            alt="Big font size icon: it is the letter 'A' with a plus sign afterwards">
-                        <span class="side-menu-mode-text">+</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Nav Bar for small screens -->
-        <nav class="row justify-content-between d-md-none d-flex">
-            <div class="col-2">
-                <a href="/index.html"><img id="website-logo-small-screen" src="/images/v-logo.png"
-                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
-            </div>
-
-            <div class="col-7">
-                <a href="/report.html">Report</a>
-                <button id="menu-button" class="open-small-screens-menu-button">
-                    <img id="website-small-menu" src="/images/bars-menu.svg" alt="">
-                </button>
-                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
-                <button id="accessibility-button-small-screen" class="open-menu-button">
-                    <img id="website-accessibility-menu-small-screen" src="/images/accessibility-icon.png"
-                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
-                </button>
-            </div>
-        </nav>
-
-        <!-- Small screens side menu containing navigation options -->
-        <section id="small-screens-menu" class="side-navigation-menu">
-            <!--  The close side menu button that shows up on the top right when the menu is open. -->
-            <button class="close-menu-button">&times;</button>
-            <h2 id="navigation-title">NAVIGATION</h2>
-            <!-- Navigation options -->
-            <div class="small-screens-menu-buttons">
-                <a href="/index.html">Home</a>
-                <a href="/news.html">News</a>
-                <a href="/categories.html">Categories</a>
-                <a href="/subscribe.html">Subscribe</a>
-                <a href="/newsletter.html">Newsletter</a>
-            </div>
-        </section>
-
-    </header>
+{% block body %}
 
     <!-- 
         The whole "subscribe" page is divided into two section, the first one in yellow, containing
@@ -195,32 +39,32 @@
                     <!-- The list of benefits the user gets when choosing this subscribe option -->
                     <ul class="subscribe-benefits">
                         <li>
-                            <img class="checkmark" src="/images/checkmark.svg"
+                            <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                 alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                             Unlimited access to TheVerve.com
                         </li>
                         <li>
-                            <img class="checkmark" src="/images/checkmark.svg"
+                            <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                 alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                             Full digital archive from 1857 to today
                         </li>
                         <li>
-                            <img class="checkmark" src="/images/checkmark.svg"
+                            <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                 alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                             Subscriber-only newsletters
                         </li>
                         <li>
-                            <img class="checkmark" src="/images/checkmark.svg"
+                            <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                 alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                             iOS & Android app
                         </li>
                         <li>
-                            <img class="checkmark" src="/images/checkmark.svg"
+                            <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                 alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                             Exclusive live events
                         </li>
                         <li>
-                            <img class="checkmark" src="/images/checkmark.svg"
+                            <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                 alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                             PDF issues, audio articles, & more
                         </li>
@@ -241,7 +85,7 @@
                     <div class="subscribe-container">
                         <ul class="subscribe-benefits">
                             <li>
-                                <img class="checkmark" src="/images/checkmark.svg"
+                                <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                     alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                                 Digital subscription
                             </li>
@@ -249,7 +93,7 @@
                         <hr class="solid">
                         <ul class="subscribe-benefits">
                             <li>
-                                <img class="checkmark" src="/images/checkmark.svg"
+                                <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                     alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                                 10 print issues of the magazine delivered to your door
                             </li>
@@ -271,7 +115,7 @@
                     <div class="subscribe-container">
                         <ul class="subscribe-benefits">
                             <li>
-                                <img class="checkmark" src="/images/checkmark.svg"
+                                <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                     alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                                 Print & Digital subscription
                             </li>
@@ -279,17 +123,17 @@
                         <hr class="solid">
                         <ul class="subscribe-benefits">
                             <li>
-                                <img class="checkmark" src="/images/checkmark.svg"
+                                <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                     alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                                 Ad-free web browsing
                             </li>
                             <li>
-                                <img class="checkmark" src="/images/checkmark.svg"
+                                <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                     alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                                 Free digital gift subscription
                             </li>
                             <li>
-                                <img class="checkmark" src="/images/checkmark.svg"
+                                <img class="checkmark" src="{% static 'blog/images/checkmark.svg' %}"
                                     alt="Subscription benefit checkmark icon: a 'v' shaped icon that indicates successful completion or approval">
                                 A vital role in supporting The Verve's journalism
                             </li>
@@ -333,7 +177,7 @@
                 <article class="vertical-news-article col">
                     <!-- News image container: containing image of the article -->
                     <div class="news-image-container">
-                        <img src="/images/subscribe1.jpg" alt="Shot of a record store selling vynils. The image shows up close the pop / rock section">
+                        <img src="{% static 'blog/images/subscribe1.jpg' %}" alt="Shot of a record store selling vynils. The image shows up close the pop / rock section">
                     </div>
                     <!-- News text container: containing the text part of each article, which includes a title and an article brief -->
                     <div class="news-text-container">
@@ -352,7 +196,7 @@
                 <article class="vertical-news-article col">
                     <!-- News image container: containing image of the article -->
                     <div class="news-image-container">
-                        <img src="/images/subscribe2.jpg" alt="Shot of a musician playing guitar. The hands are playing a chord while only the middle part of the body of that person is visible">
+                        <img src="{% static 'blog/images/subscribe2.jpg' %}" alt="Shot of a musician playing guitar. The hands are playing a chord while only the middle part of the body of that person is visible">
                     </div>
                     <!-- News text container: containing the text part of each article, which includes a title and an article brief -->
                     <div class="news-text-container">
@@ -371,7 +215,7 @@
                 <article class="vertical-news-article col">
                     <!-- News image container: containing image of the article -->
                     <div class="news-image-container">
-                        <img src="/images/subscribe3.jpg" alt="Crowd cheering at a concert. Some of the people in the crowd are raising their hands and shaping a heart">
+                        <img src="{% static 'blog/images/subscribe3.jpg' %}" alt="Crowd cheering at a concert. Some of the people in the crowd are raising their hands and shaping a heart">
                     </div>
                     <!-- News text container: containing the text part of each article, which includes a title and an article brief -->
                     <div class="news-text-container">
@@ -386,11 +230,4 @@
         </section>
     </main>
 
-    <!-- Footer section which is only decorative -->
-    <footer>
-        <p id="footer-text">&copy; 2023 The Verve. All rights reserved.</p>
-    </footer>
-
-</body>
-
-</html>
+{% endblock %}
