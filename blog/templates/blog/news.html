@@ -1,167 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="html-element">
-<!--
-    IMAGE AND TEXT ATTRIBUTION:
-    - All the images used for the website are copyright-free, and were gathered from https://unsplash.com/
-    - All the newspaper articles used for the website are entirely fictional, and were created by https://rytr.me/
--->
-<head>
-    <!-- Required meta tags for character set and viewport -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "blog/layout.html" %}
+{% load static %}
 
-    <!-- External CSS frameworks and libraries -->
-    <!-- 1. Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+{% block style %}
+    <link href="{% static 'blog/styles/news.css' %}" rel="stylesheet">
+{% endblock %}
 
-    <!-- 2. jQuery-->
-    <script src="https://code.jquery.com/jquery-3.7.0.js"
-        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-
-    <!-- External CSS stylesheets -->
-    <link rel="stylesheet" href="/styles/common.css">
-    <link rel="stylesheet" href="/styles/news.css">
-
-    <!-- External JS modules -->
-    <script type="module" src="/scripts/common.js"> </script>
-
-    <!-- Fonts from Google API-->
-    <link href="https://fonts.googleapis.com/css2?family=Oswald" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans" rel="stylesheet">
-
-    <!-- Page title -->
-    <title>The Verve - News</title>
-</head>
-
-<body>
-
-    <!-- 
-        Header Section: contains the website logo, the navigation links and accessibility options.
-        I choose to divide it in two sections. The first one leaning on the left side: from the logo
-        up to the "Newsletter" page link. And the second on leaning on the right side containing
-        "Report" and the "Accessibility" logo that opens up the accessibility side menu when clicked.
-    -->
-    <header>
-        <!-- Nav Bar for big screens -->
-        <nav class="row justify-content-between d-none d-md-flex">
-            <!-- 
-                The first of the two sections of the navigation for the website: from the logo
-                up to the "Newsletter" page link
-            -->
-            <div id="main-navigation" class="col-md-6">
-                <!-- Website logo -->
-                <a href="/index.html"><img id="website-logo" src="/images/v-logo.png"
-                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
-                <!-- Navigation links -->
-                <a href="/index.html">Home</a>
-                <a href="/news.html">News</a>
-                <a href="/categories.html">Categories</a>
-                <a href="/subscribe.html">Subscribe</a>
-                <a href="/newsletter.html">Newsletter</a>
-            </div>
-            <!-- 
-                The second of the two sections of the navigation for the website: the report 
-                and "Accessibility" logo button. 
-            -->
-            <div id="side-navigation" class="col-md-2">
-                <a href="/report.html">Report</a>
-                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
-                <button id="accessibility-button" class="open-menu-button">
-                    <img id="website-accessibility-menu" src="/images/accessibility-icon.png"
-                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
-                </button>
-            </div>
-        </nav>
-
-        <!-- 
-            Accessibility side menu containing options for increasing/decreasing the font size
-            and for regulating the dark/light mode for the whole website
-        -->
-        <section id="side-menu" class="side-navigation-menu">
-            <!-- 
-                The close side menu button that shows up on the top right when the side accessibility
-                menu is open.
-            -->
-            <button class="close-menu-button">&times;</button>
-            <h2 id="accessibility-title">ACCESSIBILITY</h2>
-            <!-- Accessibility options: light/dark mode and font size -->
-            <div class="side-menu-buttons">
-                <!-- The first of the two accessibility options: View Mode -->
-                <h3>View mode:</h3>
-                <div id="view-mode-group" class="btn-group" role="group">
-                    <!-- Light mode button -->
-                    <button id="light-mode" type="button" class="btn btn-secondary side-menu-button">
-                        <img src="/images/light-mode.svg"
-                            alt="Light mode icon: it displays an empty moon in order to indicate light">
-                        <span class="side-menu-mode-text">&nbsp;Light</span>
-                    </button>
-                    <!-- Dark mode button -->
-                    <button id="dark-mode" type="button" class="btn btn-secondary side-menu-button">
-                        <span class="side-menu-mode-text">Dark&nbsp;</span>
-                        <img src="/images/dark-mode.svg"
-                            alt="Dark mode icon: it displays a full moon in order to indicate darkness">
-                    </button>
-                </div>
-                <!-- The second of the two accessibility options: Font Size -->
-                <h3>Font size:</h3>
-                <div id="font-size-group" class="btn-group" role="group">
-                    <!-- Small font size button -->
-                    <button id="font-size-small" type="button" class="btn btn-secondary side-menu-button">
-                        <span class="side-menu-mode-text">-</span>
-                        <img src="/images/font-size.svg"
-                            alt="Small font size icon: it is the letter 'A' with a minus sign preceding it">
-                    </button>
-                    <!-- Normal font size button -->
-                    <button id="font-size-normal" type="button" class="btn btn-secondary side-menu-button">
-                        <img src="/images/font-size.svg" alt="Normal font size icon: it is just the letter 'A'">
-                    </button>
-                    <!-- Big font size button -->
-                    <button id="font-size-big" type="button" class="btn btn-secondary side-menu-button">
-                        <img src="/images/font-size.svg"
-                            alt="Big font size icon: it is the letter 'A' with a plus sign afterwards">
-                        <span class="side-menu-mode-text">+</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Nav Bar for small screens -->
-        <nav class="row justify-content-between d-md-none d-flex">
-            <div class="col-2">
-                <a href="/index.html"><img id="website-logo-small-screen" src="/images/v-logo.png"
-                        alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
-            </div>
-
-            <div class="col-7">
-                <a href="/report.html">Report</a>
-                <button id="menu-button" class="open-small-screens-menu-button">
-                    <img id="website-small-menu" src="/images/bars-menu.svg" alt="">
-                </button>
-                <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
-                <button id="accessibility-button-small-screen" class="open-menu-button">
-                    <img id="website-accessibility-menu-small-screen" src="/images/accessibility-icon.png"
-                        alt="The Verve accessibility button displaying a person with in an open position. It is used to open the accessibility side menu">
-                </button>
-            </div>
-        </nav>
-
-        <!-- Small screens side menu containing navigation options -->
-        <section id="small-screens-menu" class="side-navigation-menu">
-            <!--  The close side menu button that shows up on the top right when the menu is open. -->
-            <button class="close-menu-button">&times;</button>
-            <h2 id="navigation-title">NAVIGATION</h2>
-            <!-- Navigation options -->
-            <div class="small-screens-menu-buttons">
-                <a href="/index.html">Home</a>
-                <a href="/news.html">News</a>
-                <a href="/categories.html">Categories</a>
-                <a href="/subscribe.html">Subscribe</a>
-                <a href="/newsletter.html">Newsletter</a>
-            </div>
-        </section>
-
-    </header>
+{% block body %}
 
     <!--
         The whole "news" page is divided into two section: one on the left side
@@ -188,7 +32,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news0.jpg"
+                                <img src="{% static 'blog/images/news0.jpg' %}"
                                     alt="The Band Velvet Vortex performing during one of their latest tours. It is a black and white image capturing the crowd cheering and the band playing">
                                 <figcaption>
                                     Velvet Vortex electrifying the stage with their iconic sound during a legendary live
@@ -253,7 +97,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news1.jpg"
+                                <img src="{% static 'blog/images/news1.jpg' %}"
                                     alt="ThunderStrike band performing live for the tour of their latest album 'Ride the Lightning'">
                                 <figcaption>
                                     ThunderStrike electrifying the stage with a live performance of their latest album
@@ -313,7 +157,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news2.jpg"
+                                <img src="{% static 'blog/images/news2.jpg' %}"
                                     alt="The emerging indie rock sensation, captured while holding their instruments in plain air">
                                 <figcaption>
                                     The emerging indie rock sensation, captured in a moment of musical synergy with
@@ -377,7 +221,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news3.jpg"
+                                <img src="{% static 'blog/images/news3.jpg' %}"
                                     alt="A close up of two hands that carefully flip through a collection of vintage vinyl records">
                                 <figcaption>
                                     Exploring the Timeless Melodies - Carefully flipping through a
@@ -443,7 +287,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news4.jpg"
+                                <img src="{% static 'blog/images/news4.jpg' %}"
                                     alt="A behind-the-scene look at the making of the hit music video 'Lovestruck Baby'">
                                 <figcaption>
                                     Behind the Scenes Magic - Capturing the creative energy and dedication of the
@@ -504,7 +348,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news5.jpg"
+                                <img src="{% static 'blog/images/news5.jpg' %}"
                                     alt="The rapper J. Cole caught during one of his live performances">
                                 <figcaption>
                                     J. Cole, the lyrical genius, captivating the audience with his electrifying
@@ -566,7 +410,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news6.jpg"
+                                <img src="{% static 'blog/images/news6.jpg' %}"
                                     alt="A disk jockey (only one hand visible) DJing in a live performance">
                                 <figcaption>
                                     Electronic dance music artists embracing innovation and pushing sonic boundaries in
@@ -624,7 +468,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news7.jpg"
+                                <img src="{% static 'blog/images/news7.jpg' %}"
                                     alt="The members of the band Midnight Rebellion sharing a triumphant moment on stage">
                                 <figcaption>
                                     The members of Midnight Rebellion, the legendary band, share a triumphant moment on
@@ -690,7 +534,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news8.jpg"
+                                <img src="{% static 'blog/images/news8.jpg' %}"
                                     alt="The band Riot Resonance perfoming live in one of their recent concerts">
                                 <figcaption>
                                     Riot Resonance: Rising from the Ashes - A band's journey from humble beginnings to
@@ -751,7 +595,7 @@
                             </div>
                             <!-- News image container: containing the image and the caption text of each article -->
                             <figure class="news-image-container">
-                                <img src="/images/news9.jpg"
+                                <img src="{% static 'blog/images/news9.jpg' %}"
                                     alt="The drummer Joe Emmet caught while perfoming live. The image shows him playing from behind the drumset.">
                                 <figcaption>
                                     Iconic drummer Joe Emmet joins the supergroup, creating a musical union that
@@ -909,11 +753,4 @@
         </section>
     </main>
 
-    <!-- Footer section which is only decorative -->
-    <footer>
-        <p id="footer-text">&copy; 2023 The Verve. All rights reserved.</p>
-    </footer>
-
-</body>
-
-</html>
+{% endblock %}
