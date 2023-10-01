@@ -187,8 +187,8 @@ $(document).ready(function () {
 
       // Select all elements with the class "checkmark"
       $(".checkmark").each(function () {
-        // Change the src attribute to "/images/white-checkmark.svg"
-        $(this).attr("src", "/images/checkmark.svg");
+        // Change the src attribute to "/images/checkmark.svg"
+        $(this).attr("src", checkmark);
       });
     } else if (preference === 'dark') {
       // Set CSS variables for dark mode
@@ -205,7 +205,7 @@ $(document).ready(function () {
       // Select all elements with the class "checkmark"
       $(".checkmark").each(function () {
         // Change the src attribute to "/images/white-checkmark.svg"
-        $(this).attr("src", "/images/white-checkmark.svg");
+        $(this).attr("src", white_checkmark);
       });
     }
   }
