@@ -54,21 +54,20 @@
             -->
             <div id="main-navigation" class="col-md-6">
                 <!-- Website logo -->
-                <a href="/index.html"><img id="website-logo" src="{% static 'blog/images/v-logo.png' %}"
+                <a href="{% url 'index' %}"><img id="website-logo" src="{% static 'blog/images/v-logo.png' %}"
                         alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
                 <!-- Navigation links -->
-                <a href="/index.html">Home</a>
-                <a href="/news.html">News</a>
-                <a href="/categories.html">Categories</a>
-                <a href="/subscribe.html">Subscribe</a>
-                <a href="/newsletter.html">Newsletter</a>
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'news' %}">News</a>
+                <a href="{% url 'categories' %}">Categories</a>
+                <a href="{% url 'subscribe' %}">Subscribe</a>
+                <a href="{% url 'newsletter' %}">Newsletter</a>
             </div>
             <!-- 
                 The second of the two sections of the navigation for the website: the report 
                 and "Accessibility" logo button. 
             -->
-            <div id="side-navigation" class="col-md-2">
-                <a href="/report.html">Report</a>
+            <div id="side-navigation" class="col-md-1">
                 <!-- "Accessibility" logo that opens up the accessibility side menu when clicked. -->
                 <button id="accessibility-button" class="open-menu-button">
                     <img id="website-accessibility-menu" src="{% static 'blog/images/accessibility-icon.png' %}"
@@ -128,11 +127,10 @@
         <!-- Nav Bar for small screens -->
         <nav class="row justify-content-between d-md-none d-flex">
             <div class="col-2">
-                <a href="/index.html"><img id="website-logo-small-screen" src="{% static 'blog/images/v-logo.png' %}" alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
+                <a href="{% url 'index' %}"><img id="website-logo-small-screen" src="{% static 'blog/images/v-logo.png' %}" alt="The Verve website logo: it displays the letter 'V' in red with a gradient background from yellow (to the left) to orange (to the right)"></a>
             </div>
 
-            <div class="col-7">
-                <a href="/report.html">Report</a>
+            <div class="col-3">
                 <button id="menu-button" class="open-small-screens-menu-button">
                     <img id="website-small-menu" src="{% static 'blog/images/bars-menu.svg' %}" alt="">
                 </button>
@@ -151,11 +149,11 @@
             <h2 id="navigation-title">NAVIGATION</h2>
             <!-- Navigation options -->
             <div class="small-screens-menu-buttons">
-                <a href="/index.html">Home</a>
-                <a href="/news.html">News</a>
-                <a href="/categories.html">Categories</a>
-                <a href="/subscribe.html">Subscribe</a>
-                <a href="/newsletter.html">Newsletter</a>
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'news' %}">News</a>
+                <a href="{% url 'categories' %}">Categories</a>
+                <a href="{% url 'subscribe' %}">Subscribe</a>
+                <a href="{% url 'newsletter' %}">Newsletter</a>
             </div>
         </section>
 
